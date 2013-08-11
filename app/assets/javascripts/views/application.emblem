@@ -1,0 +1,38 @@
+header.row
+  .large-12.columns
+    nav.top-bar
+      ul.title-area
+        li.name
+          h1 wax poetic records
+        li.toggle-topbar.menu-icon
+          a href='#' menu
+      section.top-bar-section
+        ul.left
+          li
+            a href='#' artists
+          li
+            a href='#' releases
+        ul.right
+          li.search
+            form
+              input type='search'
+          li.has-button
+            a.small.button href='#' search artists
+= outlet
+
+footer class="row"
+  div class="large-12 columns"
+    hr
+    div class="row"
+      div class="large-6 columns"
+        p &copy; Copyright no one at all. Go to town.
+      div class="large-6 columns"
+        ul class="inline-list right"
+          li
+            a href="#" Link 1
+          li
+            a href="#" Link 2
+          li
+            a href="#" Link 3
+          li
+            a href="#" Link 4
