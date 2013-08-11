@@ -1,4 +1,6 @@
 class Release < ActiveRecord::Base
   belongs_to :artist
-  attr_accessible :catalog_number, :description, :name, :released_on, :tracks
+  validates :name, presence: true
+  validates :catalog_number, presence: true
+  validates :released_on, presence: true
 end
