@@ -14,8 +14,8 @@ gem 'coffee-rails'
 gem 'zurb-foundation',  '>= 4.0'
 gem 'uglifier',         '~> 1.3'
 
-gem 'ember-rails'
-gem 'emblem-rails'
+gem 'ember-rails', '0.12.0'
+gem 'emblem-rails', '0.0.7'
 gem 'ember_script-rails'
 
 group :development do

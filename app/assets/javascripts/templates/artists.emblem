@@ -1,0 +1,34 @@
+.row
+  .large-6.columns
+    .row
+      h2 welcome to wax poetic
+      p we are an open source record label serving the
+        electronic music community. our music is available both at popular
+        retailers like Beatport, Stompy, Traxsource and JunoDownload, as
+        well as directly from here on the official site. remix packs and
+        "devkit" versions of our tracks are only sold via this website.
+    /.artists.row.hide-for-small
+      div#featured
+        ul data-orbit=''
+          WaxPoetic.PlaceholderImageView width=350 height=275 text='The Wonder Bars'
+          WaxPoetic.PlaceholderImageView width=350 height=275 text='Research and Development'
+          WaxPoetic.PlaceholderImageView width=350 height=275 text='Maschine Users Group'
+    .row.small-12.show-for-small
+      img src='#' alt='small screens'
+  .releases.large-6.columns
+    .row
+      h2 latest releases
+    .row
+      a.release.large-6.columns href='#'
+        WaxPoetic.PlaceholderImageView width=250 height=250 text='Album Art'
+        p WXP 001
+      a.release.large-6.columns href='#'
+        WaxPoetic.PlaceholderImageView width=250 height=250 text='Album Art'
+        p WXP 002
+    .row
+      a.release.large-6.columns href='#'
+        WaxPoetic.PlaceholderImageView width=250 height=250 text='Album Art'
+        p WXP 003
+      a.release.large-6.columns href='#'
+        WaxPoetic.PlaceholderImageView width=250 height=250 text='Album Art'
+        p WXP 004

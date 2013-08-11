@@ -1,3 +1,40 @@
-h1 header
-
+.row
+  .large-12.columns
+    nav.top-bar
+      ul.title-area
+        li.name
+          h1
+            a href='#' wax poetic records
+        li.toggle-topbar.menu-icon
+          a href='#'
+            span menu
+      section.top-bar-section
+        ul.left
+          li
+            a href='#' artists
+          li
+            a href='#' releases
+        form action='/artists'
+          ul.right
+            li.search
+              input type='search' placeholder='artist name' name='name'
+            li.has-button
+              a href='#' search
 outlet
+
+footer.row
+  .large-12.columns
+    hr
+    .row
+      .large-6.columns
+        p &copy; copyright 2013 wax poetic music, llc
+      .large-6.columns
+        ul.inline-list.right
+          li
+            a href='#' artists
+          li
+            a href='#' releases
+          li
+            a href='#' what is open-source music?
+          li
+            a href='#' contact

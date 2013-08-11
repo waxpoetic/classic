@@ -1301,3 +1301,25 @@ $default-float: left;
 // $topbar-sticky-class: ".sticky";
 
 @import 'foundation';
+
+nav form {
+  a {
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  input[type='search'] {
+    border-radius: 5px;
+  }
+}
+
+.releases a {
+  display: block;
+  //@include grid-column(6);
+
+  p {
+    text-align: right;
+    color: #AAA;
+  }
+}
