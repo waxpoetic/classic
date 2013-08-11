@@ -1,2 +1,2 @@
-class WaxPoetic.HomeView extends Em.View
+class WaxPoetic.HomeView extends Ember.View
   templateName: 'home'
