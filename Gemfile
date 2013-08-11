@@ -6,7 +6,7 @@ gem 'pg'
 gem 'active_model_serializers'
 gem 'jbuilder'
 gem 'carrierwave'
-gem 'strong_parameters'
+gem 'puma'
 
 gem 'jquery-rails',     '2.2.2'
 gem 'sass-rails'
