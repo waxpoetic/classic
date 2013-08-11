@@ -1,0 +1,13 @@
+.page.row
+  .sidebar.large-4.small-4.columns
+    h1 get in touch
+    h4.subheader we're always looking to hear from fans and other musicians!
+  .large-8.small-8.columns
+    h4 get free music
+    p sign up for our email list to receive updates when we release FREEBIES as well as new event notifications for all your favorite wax poetic artists.
+    h4 send us a demo
+    p
+      span we're currently looking for new submissions for artists to add to our roster!
+      span email:
+      a href='mailto:audition@waxpoeticrecords.com' our A&R team
+      span with your latest tracks.

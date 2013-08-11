@@ -31,10 +31,10 @@ footer.row
       .large-6.columns
         ul.inline-list.right
           li
-            a href='#' artists
+            linkTo 'artists' | artists
           li
-            a href='#' releases
+            linkTo 'releases' | releases
           li
-            a href='#' what is open-source music?
+            linkTo 'about' | what is open-source music?
           li
-            a href='#' contact
+            linkTo 'contact' | contact

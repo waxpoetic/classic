@@ -1313,7 +1313,9 @@ nav form {
     border-radius: 5px;
   }
 }
-
+.releases .row {
+  margin-top: 25px;
+}
 .releases a {
   display: block;
   //@include grid-column(6);
@@ -1322,4 +1324,22 @@ nav form {
     text-align: right;
     color: #AAA;
   }
+}
+
+.page .sidebar {
+  h1,h4 {
+    text-align: right
+  }
+  h4 {
+    margin-top: 65px;
+  }
+}
+
+.retail {
+  margin-top: 45px;
+}
+.retail img {
+  text-align: center;
+  width: 200px;
+  height: 50px;
 }
