@@ -1,6 +1,6 @@
 # for more details see: http://emberjs.com/guides/models/defining-models/
 
-WaxPoetic.Release = DS.Model.extend
+class WaxPoetic.Release extends DS.Model
   name: DS.attr 'string'
   releasedOn: DS.attr 'date'
   catalogNumber: DS.attr 'string'
