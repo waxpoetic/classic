@@ -3,4 +3,5 @@ class WaxPoetic.PlaceholderImageView extends Em.View
   templateName: null
   attributeBindings: ['src', 'text:alt']
   tagName: 'img'
-  src: ~> "http://placehold.it/#{@width}x#{@height}&text=#{@text}"
+  src: "/assets/placeholder.gif"
+  #"http://placehold.it/#{@width}x#{@height}&text=#{@text}"

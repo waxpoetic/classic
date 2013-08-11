@@ -3,17 +3,28 @@
     nav.top-bar
       ul.title-area
         li.name
-          h1
-            a href='#' wax poetic records
+          img src='/assets/text.jpeg'
         li.toggle-topbar.menu-icon
           a href='#'
             span menu
       section.top-bar-section
         ul.left
+          li style='width:35px'
+            p &nbsp;
+          li.spacer
+            p &nbsp;
           li
-            a href='#' artists
+            linkTo 'artists' | artists
+          li.spacer
+            p &nbsp;
           li
-            a href='#' releases
+            linkTo 'releases' | releases
+          li.spacer
+            p &nbsp;
+          li
+            linkTo 'shop' | shop
+          li.spacer
+            p &nbsp;
         form action='/artists'
           ul.right
             li.search

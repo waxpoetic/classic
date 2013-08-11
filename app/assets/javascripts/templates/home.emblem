@@ -1,1 +1,23 @@
-h2 home
+.row
+  .large-6.columns
+    img src='/assets/insignia.jpeg'
+    h2 welcome to wax poetic
+    p we are an open source record label serving the
+      electronic music community. in addition to serving our tracks
+      in normal audio files, we also package them together in "stem"
+      format especially designed for remixing.
+  .releases.large-6.columns
+    .row
+      a.release.large-6.columns href='#'
+        WaxPoetic.PlaceholderImageView width=250 height=250 text='Album Art'
+        p WXP 001
+      a.release.large-6.columns href='#'
+        WaxPoetic.PlaceholderImageView width=250 height=250 text='Album Art'
+        p WXP 002
+    .row.spaced
+      a.release.large-6.columns href='#'
+        WaxPoetic.PlaceholderImageView width=250 height=250 text='Album Art'
+        p WXP 003
+      a.release.large-6.columns href='#'
+        WaxPoetic.PlaceholderImageView width=250 height=250 text='Album Art'
+        p WXP 004

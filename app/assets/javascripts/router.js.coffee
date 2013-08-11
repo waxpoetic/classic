@@ -3,8 +3,12 @@
 WaxPoetic.Router.map () ->
   @resource 'artists', path: '/artists'
   @resource 'releases', path: '/releases'
-  @resource 'artist', { path: '/artists/:name' }, ->
-    @resource 'artist_releases', path: 'releases'
+  @resource 'artists', { path: '/artists' }, ->
+    @resource 'artist', { path: ':name' }, ->
+      @resource 'artist_releases', path: 'releases'
   @route 'about', path: '/about'
   @route 'contact', path: '/contact'
-  @route 'artists', path: ''
+  @route 'shop', path: '/shop'
+  @route 'home', path: ''
+
+WaxPoetic.Router.reopen location: 'history'

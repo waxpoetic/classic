@@ -1302,18 +1302,8 @@ $default-float: left;
 
 @import 'foundation';
 
-nav form {
-  a {
-    &:hover {
-      color: $primary-color;
-    }
-  }
 
-  input[type='search'] {
-    border-radius: 5px;
-  }
-}
-.releases .row {
+.spaced .row {
   margin-top: 25px;
 }
 .releases a {
@@ -1342,4 +1332,25 @@ nav form {
   text-align: center;
   width: 200px;
   height: 50px;
+}
+.top-bar {
+  a {
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  nav form {
+    input[type='search'] {
+      border-radius: 5px;
+    }
+  }
+  .name img {
+    width: 200px;
+    height: 45px;
+  }
+  li.spacer {
+    width: 5px;
+    background: #FFF;
+  }
 }
