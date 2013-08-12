@@ -7,17 +7,5 @@
       in normal audio files, we also package them together in "stem"
       format especially designed for remixing.
   .releases.large-6.columns
-    .row
-      a.release.large-6.columns href='#'
-        WaxPoetic.PlaceholderImageView width=250 height=250 text='Album Art'
-        p WXP 001
-      a.release.large-6.columns href='#'
-        WaxPoetic.PlaceholderImageView width=250 height=250 text='Album Art'
-        p WXP 002
-    .row.spaced
-      a.release.large-6.columns href='#'
-        WaxPoetic.PlaceholderImageView width=250 height=250 text='Album Art'
-        p WXP 003
-      a.release.large-6.columns href='#'
-        WaxPoetic.PlaceholderImageView width=250 height=250 text='Album Art'
-        p WXP 004
+    each release in controller.releases
+      WaxPoetic.ReleaseItemView release

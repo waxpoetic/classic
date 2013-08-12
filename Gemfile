@@ -8,6 +8,7 @@ gem 'jbuilder'
 gem 'carrierwave'
 gem 'puma'
 gem 'mini_magick'
+gem 'activeadmin'
 
 gem 'jquery-rails',     '2.2.2'
 gem 'sass-rails'

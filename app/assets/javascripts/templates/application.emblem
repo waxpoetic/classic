@@ -3,10 +3,10 @@
     nav.top-bar
       ul.title-area
         li.name
-          a href='/'
+          linkTo 'home'
             img src='/assets/text.jpeg'
         li.toggle-topbar.menu-icon
-          a href='#'
+          linkTo 'home'
             span menu
       section.top-bar-section
         ul.left
