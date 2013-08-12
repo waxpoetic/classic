@@ -6,4 +6,8 @@ class ReleaseSerializer < ActiveModel::Serializer
   def cover
     object.cover_image.url
   end
+
+  def permalink
+    releases_path object
+  end
 end

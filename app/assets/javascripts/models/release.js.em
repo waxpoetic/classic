@@ -7,3 +7,4 @@ class WaxPoetic.Release extends DS.Model
   artist: DS.belongsTo 'WaxPoetic.Artist'
   description: DS.attr 'string'
   tracks: DS.attr 'string'
+  permalink: DS.attr 'string'

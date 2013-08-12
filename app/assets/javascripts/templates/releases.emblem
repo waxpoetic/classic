@@ -1,4 +1,7 @@
 .row
   .large-12.columns
     h1 all releases
-    p none yet
+    each controller
+      WaxPoetic.ReleaseItemView
+    else
+      p none yet

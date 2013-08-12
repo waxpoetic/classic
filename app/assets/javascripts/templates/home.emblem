@@ -8,4 +8,4 @@
       format especially designed for remixing.
   .releases.large-6.columns
     each release in controller.releases
-      WaxPoetic.ReleaseItemView release
+      WaxPoetic.ReleaseItemView

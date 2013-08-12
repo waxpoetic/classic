@@ -3,4 +3,4 @@ class WaxPoetic.ReleaseItemView extends Em.View
   tagName: 'a'
   classNames: ['release', 'large-6', 'columns']
   attributeBindings: ['href']
-  href: ~> "#{@model.permalink}"
+  href: ~> "#"
