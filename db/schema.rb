@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130812004827) do
+ActiveRecord::Schema.define(:version => 20130812005716) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20130812004827) do
     t.text     "tracks"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.string   "cover_image"
   end
 
   add_index "releases", ["artist_id"], :name => "index_releases_on_artist_id"
