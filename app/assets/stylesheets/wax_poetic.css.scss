@@ -1371,16 +1371,16 @@ $topbar-link-font-size: emCalc(16);
 
     .overlay {
       @include overlay-positioning;
-      background: #333;
-      opacity: 0.25;
+      background: #777;
+      opacity: 0.85;
     }
 
     h2.text {
       @include overlay-positioning;
-      //color: #222;
-      //font-size: 48px;
-      padding-left: 600px;
-      -webkit-text-stroke: 1px #FFF;
+      color: darken(#777, 15%);
+      font-size: 48px;
+      padding-left: 580px;
+      -webkit-text-stroke: 1px darken(#777, 10%);
     }
   }
 }
