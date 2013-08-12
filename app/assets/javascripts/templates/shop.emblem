@@ -6,7 +6,7 @@
     .row
       .large-6.columns
         a href='http://www.beatport.com/label/wax-poetic/27805' target='_blank'
-          img src='assets/beatport.png' alt='beatport'
+          img src='/assets/beatport.png' alt='beatport'
       .large-6.columns
         a href='https://itunes.apple.com/us/album/just-the-start-ep-single/id56145708' target='_blank'
           img src='/assets/itunes.jpg' alt='itunes' style='width:150px'
