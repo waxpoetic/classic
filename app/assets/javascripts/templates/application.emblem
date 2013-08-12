@@ -16,7 +16,7 @@
             linkTo 'releases' | releases
           li
             linkTo 'shop' | shop
-        form action='/artists'
+        /form action='/artists'
           ul.right
             li.search
               input type='search' placeholder='artist name' name='name'
