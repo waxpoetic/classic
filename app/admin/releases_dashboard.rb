@@ -7,5 +7,6 @@ ActiveAdmin.register Release do
 
   form do |f|
     f.inputs :name, :cover_image, :artist, :released_on, :tracks
+    f.actions
   end
 end

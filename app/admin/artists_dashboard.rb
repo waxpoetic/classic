@@ -6,5 +6,6 @@ ActiveAdmin.register Artist do
 
   form do |f|
     f.inputs :name, :cover_image, :description, :members
+    f.actions
   end
 end
