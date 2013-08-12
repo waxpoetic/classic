@@ -1371,6 +1371,7 @@ $topbar-link-font-size: emCalc(16);
 
     .overlay {
       @include overlay-positioning;
+      width: 970px;
       background: #777;
       opacity: 0.85;
     }
@@ -1379,7 +1380,7 @@ $topbar-link-font-size: emCalc(16);
       @include overlay-positioning;
       color: darken(#777, 15%);
       font-size: 48px;
-      padding-left: 580px;
+      padding-left: 560px;
       -webkit-text-stroke: 1px darken(#777, 10%);
     }
   }
