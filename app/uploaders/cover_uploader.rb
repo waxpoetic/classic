@@ -2,7 +2,11 @@
 
 class CoverUploader < ImageUploader
   include CarrierWave::MiniMagick
-  storage :fog
+
+  # Provide a default URL as a default if there hasn't been a file uploaded:
+  def default_url
+    "http://placehold.it/250x250&text=Album"
+  end
 
   # Scale to 250px square
   process :scale => [250, 250]
