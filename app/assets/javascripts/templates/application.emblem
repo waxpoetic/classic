@@ -3,7 +3,8 @@
     nav.top-bar
       ul.title-area
         li.name
-          img src='/assets/text.jpeg'
+          a href='/'
+            img src='/assets/text.jpeg'
         li.toggle-topbar.menu-icon
           a href='#'
             span menu
