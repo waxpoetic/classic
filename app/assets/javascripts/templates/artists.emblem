@@ -1,0 +1,11 @@
+.row
+  .large-12.columns
+    h1 artist roster
+    if controller
+      ul data-orbit=''
+        each controller
+          li
+            img src=cover alt=name
+            .orbit-caption = name
+    else
+      p no artists to display

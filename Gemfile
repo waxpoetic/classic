@@ -7,6 +7,7 @@ gem 'active_model_serializers'
 gem 'jbuilder'
 gem 'carrierwave'
 gem 'puma'
+gem 'mini_magick'
 
 gem 'jquery-rails',     '2.2.2'
 gem 'sass-rails'
