@@ -5,7 +5,7 @@
       ul data-orbit=''
         each controller
           li
-            img src=cover alt=name
+            img src=cover_photo alt=name
             .orbit-caption = name
     else
       p no artists to display
