@@ -1234,7 +1234,7 @@ $default-float: left;
 
 // Background color for the top bar
 
-// $topbar-bg: #111;
+$topbar-bg: #FFF;
 
 // Height and margin
 
@@ -1243,7 +1243,7 @@ $default-float: left;
 
 // Control Input height for top bar
 
-// $topbar-input-height: 2.45em;
+$topbar-input-height: 2.45em;
 
 // Controlling the styles for the title in the top bar
 
@@ -1252,8 +1252,8 @@ $default-float: left;
 
 // Style the top bar dropdown elements
 
-// $topbar-dropdown-bg: #222;
-// $topbar-dropdown-link-color: #fff;
+$topbar-dropdown-bg: #FFF;
+$topbar-dropdown-link-color: #000;
 // $topbar-dropdown-link-bg: lighten($topbar-bg, 5%);
 // $topbar-dropdown-toggle-size: 5px;
 // $topbar-dropdown-toggle-color: #fff;
@@ -1261,11 +1261,11 @@ $default-float: left;
 
 // Set the link colors and styles for top-level nav
 
-// $topbar-link-color: #fff;
+$topbar-link-color: #000;
 // $topbar-link-color-hover: #fff;
 // $topbar-link-color-active: #fff;
 // $topbar-link-weight: bold;
-// $topbar-link-font-size: emCalc(13);
+$topbar-link-font-size: emCalc(16);
 // $topbar-link-hover-lightness: -30%; // Darken by 30%
 // $topbar-link-bg-hover: darken($topbar-bg, 3%);
 // $topbar-link-bg-active: darken($topbar-bg, 3%);
@@ -1302,7 +1302,6 @@ $default-float: left;
 
 @import 'foundation';
 
-
 .spaced .row {
   margin-top: 25px;
 }
@@ -1333,6 +1332,7 @@ $default-float: left;
   width: 200px;
   height: 50px;
 }
+
 .top-bar {
   a {
     &:hover {
@@ -1340,17 +1340,14 @@ $default-float: left;
     }
   }
 
-  nav form {
-    input[type='search'] {
-      border-radius: 5px;
+  li.search {
+    margin-top: 3px;
+  }
+  li.name {
+    padding-right: 15px;
+    img {
+      width: 200px;
+      height: 45px;
     }
-  }
-  .name img {
-    width: 200px;
-    height: 45px;
-  }
-  li.spacer {
-    width: 5px;
-    background: #FFF;
   }
 }

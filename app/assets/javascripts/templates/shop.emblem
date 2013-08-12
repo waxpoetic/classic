@@ -1,8 +1,8 @@
 .row
   .retail.large-12.columns
-    h3 available online
-    p if you just want the tracks, check out our pages on the following
-      online retailers for our entire catalog...
+    h1 available online
+    p our online store is coming soon. in the meantime, if you just want the tracks
+      check out our pages on the following online retailers:
     .row
       .large-6.columns
         a href='http://www.beatport.com/label/wax-poetic/27805' target='_blank'

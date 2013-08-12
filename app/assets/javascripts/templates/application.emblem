@@ -10,22 +10,12 @@
             span menu
       section.top-bar-section
         ul.left
-          li style='width:35px'
-            p &nbsp;
-          li.spacer
-            p &nbsp;
           li
             linkTo 'artists' | artists
-          li.spacer
-            p &nbsp;
           li
             linkTo 'releases' | releases
-          li.spacer
-            p &nbsp;
           li
             linkTo 'shop' | shop
-          li.spacer
-            p &nbsp;
         form action='/artists'
           ul.right
             li.search
