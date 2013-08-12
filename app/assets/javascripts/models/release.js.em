@@ -8,3 +8,4 @@ class WaxPoetic.Release extends DS.Model
   description: DS.attr 'string'
   tracks: DS.attr 'string'
   permalink: DS.attr 'string'
+  cover: DS.attr 'string'

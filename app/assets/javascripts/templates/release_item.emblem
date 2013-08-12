@@ -1,2 +1,3 @@
-WaxPoetic.PlaceholderImageView width=250 height=250 text='Album Art'
-p = catalog_number
+linkTo 'releases.show' id
+  img src=cover alt=name
+  p = catalogNumber

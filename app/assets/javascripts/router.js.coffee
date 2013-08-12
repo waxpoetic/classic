@@ -2,7 +2,8 @@
 
 WaxPoetic.Router.map () ->
   @resource 'artists', path: '/artists'
-  @resource 'releases', path: '/releases'
+  @resource 'releases', { path: '/releases' }, ->
+    @route 'show', path: ':id'
   @resource 'artists', { path: '/artists' }, ->
     @resource 'artist', { path: ':name' }, ->
       @resource 'artist_releases', path: 'releases'
