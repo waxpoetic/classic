@@ -5,3 +5,4 @@ class WaxPoetic.Artist extends DS.Model
   description: DS.attr 'string'
   members: DS.attr 'string'
   cover: DS.attr 'string'
+  slug: DS.attr 'string'

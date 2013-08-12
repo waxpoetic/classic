@@ -1348,3 +1348,39 @@ $topbar-link-font-size: emCalc(16);
     }
   }
 }
+
+@mixin overlay-positioning {
+  display: none;
+  width: 1000px;
+  height: 400px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#artists {
+  list-style: none;
+
+  li {
+    position: relative;
+
+    img {
+      width: 1000px;
+      height: 400px;
+    }
+
+    .overlay {
+      @include overlay-positioning;
+      background: #333;
+      opacity: 0.25;
+    }
+
+    h2.text {
+      @include overlay-positioning;
+      //color: #222;
+      //font-size: 48px;
+      padding-left: 600px;
+      -webkit-text-stroke: 1px #FFF;
+    }
+  }
+}

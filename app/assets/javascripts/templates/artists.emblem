@@ -1,11 +1,11 @@
 .row
   .large-12.columns
     h1 artist roster
-    if controller
-      ul data-orbit=''
-        each controller
-          li
-            img src=cover_photo alt=name
-            .orbit-caption = name
-    else
-      p no artists to display
+    ul#artists
+      each controller
+        li
+          linkTo 'artist' slug
+            img src=cover alt=name
+            .overlay
+            h2.text
+              = name
