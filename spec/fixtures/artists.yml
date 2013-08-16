@@ -1,0 +1,6 @@
+wonderbars:
+  name: "The Wonder Bars"
+  cover_image: 'wonderbars.png'
+rnd:
+  name: "Research and Development"
+  cover_image: 'algorithms.png'
