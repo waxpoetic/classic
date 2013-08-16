@@ -3,7 +3,10 @@ WaxPoetic::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   resources :releases
-  resources :artists
+
+  resources :artists do
+    resources :releases
+  end
 
   root to: 'application#index'
   match '/*path' => 'application#index'
