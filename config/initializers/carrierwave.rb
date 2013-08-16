@@ -6,6 +6,6 @@ CarrierWave.configure do |config|
     :region                 => 'us-east-1'
   }
   config.fog_directory  = 'files.waxpoeticrecords.com'
-  config.fog_public     = false                                   # optional, defaults to true
-  config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}  # optional, defaults to {}
+  config.fog_public     = true
+  #config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}
 end
