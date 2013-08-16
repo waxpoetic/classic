@@ -12,11 +12,14 @@ gem 'mini_magick'
 gem 'activeadmin'
 gem 'strong_parameters'
 
-gem 'jquery-rails',     '2.2.2'
-gem 'sass-rails'
-gem 'coffee-rails'
-gem 'zurb-foundation',  '>= 4.0'
-gem 'uglifier',         '~> 1.3'
+group :assets do
+  gem 'jquery-rails',     '2.2.2'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'zurb-foundation',  '>= 4.0'
+  gem 'uglifier',         '~> 1.3'
+  gem 'asset_sync'
+end
 
 gem 'ember-rails', '0.12.0'
 gem 'emblem-rails', '0.0.7'
