@@ -1,0 +1,10 @@
+boyfriend:
+  name: "Boyfriend EP"
+  catalog_number: "WXP003"
+  released_on: '2013-10-01'
+  artist: wonderbars
+shuffle_not:
+  name: "Shuffle Not"
+  catalog_number: "WXP002"
+  released_on: '2013-08-30'
+  artist: rnd
