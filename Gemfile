@@ -10,6 +10,7 @@ gem 'fog'
 gem 'puma'
 gem 'mini_magick'
 gem 'activeadmin'
+gem 'strong_parameters'
 
 gem 'jquery-rails',     '2.2.2'
 gem 'sass-rails'
