@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 class ImageUploader < CarrierWave::Uploader::Base
-  include CarrierWave::MiniMagick
   storage :fog
 
   # Override the directory where uploaded files will be stored.
