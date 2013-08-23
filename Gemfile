@@ -11,6 +11,7 @@ gem 'puma'
 gem 'mini_magick'
 gem 'activeadmin'
 gem 'strong_parameters'
+gem 'asset_sync'
 
 group :assets do
   gem 'jquery-rails',     '2.2.2'
@@ -18,7 +19,6 @@ group :assets do
   gem 'coffee-rails'
   gem 'zurb-foundation',  '>= 4.0'
   gem 'uglifier',         '~> 1.3'
-  gem 'asset_sync'
 end
 
 gem 'ember-rails', '0.12.0'
