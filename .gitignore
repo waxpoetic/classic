@@ -28,3 +28,4 @@ public/system/*
 coverage/
 spec/tmp/*
 public/uploads
+public/assets
