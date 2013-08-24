@@ -37,6 +37,6 @@ footer.row
           li
             linkTo 'releases' | releases
           li
-            linkTo 'about' | what is open-source music?
+            linkTo 'about' | what is "open source"?
           li
             linkTo 'contact' | contact

@@ -1,19 +1,34 @@
 .page.row
   .sidebar.large-4.small-4.columns
-    h1 we are wax poetic
-    h4.subheader an open-source record label serving the electronic music community
+    h1 open source music
+    h4.subheader currently one of the only proponents of
+      open-source music in america, wax poetic music is
+      redefining how we distribute and consume
+      music in the 21st century.
   .large-8.small-8.columns
-    h4 where did we come from?
+    h4 what is "open-source"?
     p inspired by the free software and open-source movements
       happening on the internet, wax poetic was founded upon
       the ideal that anyone should have the right to experiment
       upon and create new ideas from existing works of music.
       we strive to release all of our music in as many formats
       as possible, including one by which other producers can fork
-      and create their own works on top of ours.
+      and create their own works on top of ours. this is "open-source"
+      music in a nutshell...distributions of our products that allow
+      for the kind of open access and experimentation that most
+      producers only dream of.
     h4 why are we here?
     p our mission, first and foremost, is to provide quality
       electronic music that breaks ground on both the cerebral
       and emotional levels. on top of that, we want to make
       said music freely available to anyone who wishes to modify
-      it for their own purposes.
+      it for their own purposes. we are extremely committed to the ideal
+      of open-source, so much so that this very site is comprised of
+      100% open-source components, and apart from the payment system,
+      we serve all of our organic content with open-source systems
+      and services.
+    h4
+      a href="http://github.com/tubbo/waxpoeticrecords.com" check out the codebase!
+    p we used ember.js, zurb foundation and ruby on rails to build the web
+      application that you see before your eyes. additionally, we partnered with
+      Stripe payments to provide merchant services for on-site product sales.
