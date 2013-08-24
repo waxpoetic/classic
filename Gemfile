@@ -28,6 +28,7 @@ gem 'ember_script-rails'
 group :development do
   gem 'meta_request'
   gem 'quiet_assets'
+  gem 'travis'
 end
 
 group :development, :test do
