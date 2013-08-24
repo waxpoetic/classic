@@ -7,11 +7,11 @@ before_install:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
 before_script:
-- createuser -s ghettoblaster && rake db:setup
+- createuser -s wax_poetic && rake db:setup
 script: bundle exec rspec --format=documentation
 after_success:
 - gem install heroku
-- git remote add heroku git@heroku.com:wunderkind.git
+- git remote add heroku git@heroku.com:waxpoetic.git
 - echo 'Host heroku.com' >> ~/.ssh/config
 - echo '   StrictHostKeyChecking no' >> ~/.ssh/config
 - echo '   CheckHostIP no' >> ~/.ssh/config
