@@ -6,4 +6,5 @@ CarrierWave.configure do |config|
     :region                 => 'us-east-1'
   }
   config.fog_directory  = 'files.waxpoeticrecords.com'
+  config.fog_use_ssl_for_aws = false
 end
