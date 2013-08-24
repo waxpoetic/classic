@@ -5,6 +5,10 @@ require 'carrierwave/processing/mini_magick'
 class MastheadUploader < ImageUploader
   include CarrierWave::MiniMagick
 
+  def store_dir
+    'headers'
+  end
+
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
     "http://placehold.it/1000x400&text=Album"
