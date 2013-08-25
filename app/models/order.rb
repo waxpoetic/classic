@@ -4,18 +4,22 @@
 # and producing a grand total that the Charge will amount to.
 class Order < ActiveRecord::Base
   belongs_to :user
+  has_many :product_orders
   has_many :products, through: :product_orders
 
   validates :total, presence: true
 
   attr_accessor :card_number, :security_code,
-                :expiration_month, :expiration_year, :stripe_token
+                :expiration_month, :expiration_year, :stripe_token,
+                :charge
 
   scope :not_checked_out, -> { where is_checked_out: false }
 
   # Add a product to the Order as a ProductOrder, and append its price
-  # to the total price.
+  # to the total price. If this Order has already been checked out,
+  # return `false`.
   def add product
+    return false if is_checked_out?
     entry = product_orders.create! product_id: product.id
     update_attributes total: total + product.price
   rescue ActiveRecord::ValidationError
@@ -26,6 +30,7 @@ class Order < ActiveRecord::Base
   # Remove a ProductOrder entry from this Order, and deduct it from the
   # total price.
   def remove product
+    return false if is_checked_out?
     entry = product_orders.find_by_product_id product.id
     return false unless entry.destroy
     update_attributes total: total - product.price
@@ -34,8 +39,12 @@ class Order < ActiveRecord::Base
     false
   end
 
-  def check_out!
-    charge = Charge.new self
+  def includes? product
+    products.map(&:id).includes? product.id
+  end
+
+  def checkout
+    @charge = Charge.new self
     return false unless charge.save
     update_attributes is_checked_out: false
   end

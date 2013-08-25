@@ -8,5 +8,5 @@ class Product < ActiveRecord::Base
   belongs_to :release
   validates :name, presence: true
   validates :price, presence: true
-  mount_uploader :file, MusicUploader
+  #mount_uploader :file, MusicUploader
 end
