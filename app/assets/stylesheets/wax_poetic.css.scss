@@ -1391,10 +1391,20 @@ $topbar-link-font-size: emCalc(16);
 }
 
 .releases {
-  dl {
+  dl.menu {
     dd img {
       width: 200px;
       height: 200px;
+    }
+  }
+}
+
+#release {
+  dl {
+    dd {
+      ol {
+        margin-left: 22px;
+      }
     }
   }
 }
