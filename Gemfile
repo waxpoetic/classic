@@ -12,6 +12,7 @@ gem 'mini_magick'
 gem 'activeadmin'
 gem 'strong_parameters'
 gem 'asset_sync'
+gem 'stripe'
 
 group :assets do
   gem 'jquery-rails',     '2.2.2'

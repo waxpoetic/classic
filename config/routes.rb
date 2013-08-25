@@ -1,8 +1,18 @@
 WaxPoetic::Application.routes.draw do
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  resources :orders
 
-  resources :releases, only: %w(index show)
+
+  devise_for :users
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes self
+
+  resources :users, only: %w(show) do
+    resources :orders
+  end
+
+  resources :releases, only: %w(index show) do
+    resources :products
+  end
 
   resources :artists, only: %w(index) do
     resources :releases, only: %w(index)
