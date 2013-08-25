@@ -5,7 +5,4 @@
 class Order < ActiveRecord::Base
   belongs_to :user
   has_many :products, through: :product_orders
-
-  def total_amount
-  end
 end
