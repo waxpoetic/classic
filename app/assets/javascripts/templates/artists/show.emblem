@@ -1,1 +1,10 @@
-h2 = name
+.row
+  .large-6.columns
+    h2 = name
+    img src=photo alt=name
+  .large-6.columns
+    .row
+      = markdown description
+    .row
+      h4 members
+      = markdown members

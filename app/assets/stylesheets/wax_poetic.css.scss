@@ -1399,12 +1399,8 @@ $topbar-link-font-size: emCalc(16);
   }
 }
 
-#release {
-  dl {
-    dd {
-      ol {
-        margin-left: 22px;
-      }
-    }
+.markdown {
+  ol, li {
+    margin-left: 22px;
   }
 }

@@ -1,5 +1,5 @@
 class ArtistSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :members, :cover, :slug
+  attributes :id, :name, :description, :members, :cover, :slug, :photo
 
   def cover
     object.cover_image.url
@@ -7,5 +7,9 @@ class ArtistSerializer < ActiveModel::Serializer
 
   def slug
     object.name.parameterize
+  end
+
+  def photo
+    object.photo_image.url
   end
 end
