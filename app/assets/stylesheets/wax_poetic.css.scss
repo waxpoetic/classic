@@ -1385,3 +1385,10 @@ $topbar-link-font-size: emCalc(16);
     }
   }
 }
+
+.releases {
+  dd img {
+    width: 200px;
+    height: 200px;
+  }
+}

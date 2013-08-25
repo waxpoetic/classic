@@ -1,7 +1,11 @@
 .row
   .large-12.columns
-    h1 all releases
-    each controller
-      WaxPoetic.ReleaseItemView
-    else
-      p none yet
+    h1 release catalog
+    ul data-orbit=""
+      dt all releases
+      each controller
+        dd
+          img src=cover alt=name
+          p = catalog_number
+      else
+        dd none yet

@@ -2,3 +2,4 @@
 
 WaxPoetic.ReleasesView = Ember.View.extend
   templateName: 'releases'
+  classNames: ['releases']
