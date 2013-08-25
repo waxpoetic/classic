@@ -3,4 +3,14 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :timeoutable, :confirmable, :lockable, :token_authenticatable
   has_many :orders
+
+  # The current order for the given user. If one can not be found, it
+  # will be created and subsequently persisted.
+  def cart
+    @current_order ||= if orders.not_checked_out.any?
+      orders.not_checked_out.first
+    else
+      orders.create
+    end
+  end
 end

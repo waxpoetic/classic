@@ -11,6 +11,8 @@ class Order < ActiveRecord::Base
   attr_accessor :card_number, :security_code,
                 :expiration_month, :expiration_year, :stripe_token
 
+  scope :not_checked_out, -> { where is_checked_out: false }
+
   # Add a product to the Order as a ProductOrder, and append its price
   # to the total price.
   def add product
