@@ -1391,10 +1391,12 @@ $topbar-link-font-size: emCalc(16);
 }
 
 .releases {
+  em { color: #CCC; }
   dl.menu {
     dd img {
       width: 200px;
       height: 200px;
+      border: 1px solid #CCC;
     }
   }
 }
@@ -1402,5 +1404,11 @@ $topbar-link-font-size: emCalc(16);
 .markdown {
   ol, li {
     margin-left: 22px;
+  }
+}
+
+#release {
+  .panel {
+    width: 642px;
   }
 }

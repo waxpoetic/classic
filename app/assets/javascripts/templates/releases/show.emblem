@@ -1,12 +1,13 @@
-h2 = name
-h4 by #{artistName}
-dl.information
-  dt released on
-  dd = date releasedOn
+.panel
+  h2 = name
+  h4 by #{artistName}
+  dl.information
+    dt released on
+    dd = date releasedOn
 
-  dt track listing
-  dd = markdown tracks
+    dt track listing
+    dd = markdown tracks
 
-  if notes
-    dt release notes
-    dd = markdown notes
+    if notes
+      dt release notes
+      dd = markdown notes
