@@ -3,5 +3,9 @@ dl.information
   dt released on
   dd = date releasedOn
 
-  dt tracks
+  dt track listing
   dd = markdown tracks
+
+  if notes
+    dt release notes
+    dd = markdown notes

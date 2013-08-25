@@ -9,5 +9,4 @@ class WaxPoetic.Release extends DS.Model
   tracks: DS.attr 'string'
   permalink: DS.attr 'string'
   cover: DS.attr 'string'
-  tracksToHTML: ~> @_markdown.makeHtml @tracks
-  _markdown: new Showdown.converter()
+  notes: DS.attr 'string'

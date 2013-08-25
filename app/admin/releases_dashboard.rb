@@ -8,8 +8,8 @@ ActiveAdmin.register Release do
   end
 
   form do |f|
-    f.inputs :name, :cover_image, :artist, :released_on, :tracks,
-             :catalog_number
+    f.inputs :name, :cover_image, :artist, :released_on,
+             :catalog_number, :tracks, :notes
     f.actions
   end
 end

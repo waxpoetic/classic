@@ -1,11 +1,15 @@
 .row
+  h1 artist roster
+.row
   .large-12.columns
-    h1 artist roster
     ul#artists
       each controller
         li
-          linkTo 'artist' slug
+          linkTo 'artists.show' id
             img src=cover alt=name
             .overlay
             h2.text
               = name
+.row
+  #artist.large-12.columns
+    outlet
