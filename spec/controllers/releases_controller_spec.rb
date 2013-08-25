@@ -37,7 +37,7 @@ describe ReleasesController do
   end
 
   context "a single release is requested" do
-    before { get :index, id: release.id, format: 'json' }
+    before { get :show, id: release.id, format: 'json' }
 
     it "responds successfully" do
       expect(response).to be_success
