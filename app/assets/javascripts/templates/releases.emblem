@@ -4,6 +4,7 @@
     dl
       each controller
         dd
-          img src=cover alt=name
-          p = catalog_number
+          linkTo 'releases.show' id
+            img src=cover alt=name
+            p = catalog_number
     outlet
