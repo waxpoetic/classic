@@ -7,5 +7,5 @@
       in normal audio files, we also package them together in "stem"
       format especially designed for remixing.
   .releases.large-6.columns
-    each controller.releases
+    each releases
       WaxPoetic.ReleaseItemView

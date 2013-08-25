@@ -1,10 +1,14 @@
 .row
-  .large-12.columns
-    h1 release catalog
-    dl
-      each controller
-        dd
-          linkTo 'releases.show' id
-            img src=cover alt=name
-            p = catalog_number
-    outlet
+  h1 releases
+  .row
+    .large-4.columns
+      dl
+        each controller
+          dd
+            linkTo 'releases.show' id
+              img src=cover alt=name
+              p = catalog_number
+        else
+          dt loading menu...
+    #release.large-8.columns
+      outlet

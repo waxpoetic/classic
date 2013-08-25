@@ -1335,6 +1335,10 @@ $topbar-link-font-size: emCalc(16);
     &:hover {
       color: $primary-color;
     }
+
+    &.active {
+      color: darken($primary-color, 10%);
+    }
   }
 
   li.search {
@@ -1387,8 +1391,10 @@ $topbar-link-font-size: emCalc(16);
 }
 
 .releases {
-  dd img {
-    width: 200px;
-    height: 200px;
+  dl {
+    dd img {
+      width: 200px;
+      height: 200px;
+    }
   }
 }

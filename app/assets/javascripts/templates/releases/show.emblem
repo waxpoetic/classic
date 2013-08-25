@@ -1,1 +1,7 @@
-h1 = name
+h2 = name
+dl.information
+  dt released on
+  dd = date releasedOn
+
+  dt tracks
+  dd = markdown tracks

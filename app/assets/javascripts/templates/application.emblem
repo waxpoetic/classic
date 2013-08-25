@@ -3,10 +3,10 @@
     nav.top-bar
       ul.title-area
         li.name
-          linkTo 'home'
+          linkTo 'index'
             img src='/assets/text.jpeg'
         li.toggle-topbar.menu-icon
-          linkTo 'home'
+          linkTo 'index'
             span menu
       section.top-bar-section
         ul.left
@@ -16,12 +16,6 @@
             linkTo 'releases' | releases
           li
             linkTo 'shop' | shop
-        /form action='/artists'
-          ul.right
-            li.search
-              input type='search' placeholder='artist name' name='name'
-            li.has-button
-              a href='#' search
 outlet
 
 footer.row

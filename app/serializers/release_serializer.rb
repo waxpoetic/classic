@@ -1,3 +1,5 @@
+require 'redcarpet'
+
 class ReleaseSerializer < ActiveModel::Serializer
   attributes :id, :name, :released_on, :catalog_number, :description,
              :tracks, :cover, :catalog_number
