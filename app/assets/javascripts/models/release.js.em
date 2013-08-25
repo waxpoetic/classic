@@ -2,6 +2,7 @@
 
 class WaxPoetic.Release extends DS.Model
   name: DS.attr 'string'
+  artistName: DS.attr 'string'
   releasedOn: DS.attr 'date'
   catalogNumber: DS.attr 'string'
   artist: DS.belongsTo 'WaxPoetic.Artist'

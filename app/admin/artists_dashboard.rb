@@ -5,7 +5,7 @@ ActiveAdmin.register Artist do
   end
 
   form do |f|
-    f.inputs :name, :cover_image, :description, :members
+    f.inputs :name, :cover_image, :photo_image, :description, :members
     f.actions
   end
 end

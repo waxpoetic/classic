@@ -1,4 +1,5 @@
 h2 = name
+h4 by #{artistName}
 dl.information
   dt released on
   dd = date releasedOn
