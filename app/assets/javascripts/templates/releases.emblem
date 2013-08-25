@@ -1,11 +1,9 @@
 .row
   .large-12.columns
     h1 release catalog
-    ul data-orbit=""
-      dt all releases
+    dl
       each controller
         dd
           img src=cover alt=name
           p = catalog_number
-      else
-        dd none yet
+    outlet
