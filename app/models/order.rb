@@ -7,24 +7,24 @@ class Order < ActiveRecord::Base
   has_many :product_orders
   has_many :products, through: :product_orders
 
+  before_validation :ensure_not_checked_out
+
   validates :total, presence: true
+  validates :is_checked_out, presence: true
 
-  attr_accessor :card_number, :security_code,
-                :expiration_month, :expiration_year, :stripe_token,
-                :charge
+  attr_accessor :stripe_token, :charge
 
-  scope :not_checked_out, -> { where is_checked_out: false }
+  scope :unfilled, -> { where is_checked_out: false }
+  scope :filled, -> { where is_checked_out: true }
 
   # Add a product to the Order as a ProductOrder, and append its price
   # to the total price. If this Order has already been checked out,
   # return `false`.
   def add product
     return false if is_checked_out?
-    entry = product_orders.create! product_id: product.id
-    update_attributes total: total + product.price
-  rescue ActiveRecord::ValidationError
-    errors.add :products, "could not be added: #{entry.errors.full_messages}"
-    false
+    entry = product_orders.build product: product, order: self
+    update_attributes total: total + product.price if entry.save
+    entry
   end
 
   # Remove a ProductOrder entry from this Order, and deduct it from the
@@ -32,30 +32,31 @@ class Order < ActiveRecord::Base
   def remove product
     return false if is_checked_out?
     entry = product_orders.find_by_product_id product.id
-    return false unless entry.destroy
-    update_attributes total: total - product.price
-  rescue ActiveRecord::RecordNotFound
-    errors.add :products, "could not be found in order"
-    false
+    entry.destroy
   end
 
-  def includes? product
-    products.map(&:id).includes? product.id
+  def include? product
+    products.map(&:id).include? product.id
   end
 
-  def checkout
+  def checkout with_token
+    return true if is_checked_out?
+
+    @stripe_token = with_token
     @charge = Charge.new self
-    return false unless charge.save
-    update_attributes is_checked_out: false
+
+    if @charge.save
+      update_attributes is_checked_out: true
+    else
+      errors.add :charge, "failed: #{@charge.errors.full_messages}"
+      update_attributes is_checked_out: false
+    end
+
+    is_checked_out?
   end
 
   private
-  def from_credit_card_attributes
-    @credit_card_attrs ||= {
-      number: card_number,
-      cvc: security_code,
-      exp_month: expiration_month,
-      exp_year: expiration_year
-    }
+  def ensure_not_checked_out
+    self.is_checked_out ||= false
   end
 end

@@ -1,5 +1,4 @@
 require 'spec_helper'
 
-describe CartsController do
-
+describe CartController do
 end

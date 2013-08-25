@@ -4,15 +4,17 @@ require 'carrierwave/test/matchers'
 describe Release do
   include CarrierWave::Test::Matchers
 
-  fixtures :artists
+  fixtures :artists, :products
   let(:artist) { artists :wonderbars }
+  let(:product) { products :just_the_start_ose }
 
   subject { Release.new \
     name: 'just the start',
     catalog_number: 'WXP666',
     released_on: 3.days.ago.to_date,
     artist: artist,
-    cover_image: 'jts.png'
+    cover_image: 'jts.png',
+    products: [ product ]
   }
 
   it "validates with all required params" do
@@ -45,5 +47,9 @@ describe Release do
 
   it "has a cover image" do
     expect(subject.cover_image).to_not be_nil
+  end
+
+  it "can be sold as a product" do
+    expect(subject.products).to include(product)
   end
 end

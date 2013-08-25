@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Product do
   fixtures :releases
-  let(:release) { releases :just_the_start }
+  let(:release) { releases :boyfriend }
 
   subject do
     release.products.build \
@@ -15,6 +15,6 @@ describe Product do
   end
 
   it "must have a price" do
-    expect(subject.price).to == 9.99
+    expect(subject.price).to eq(9.99)
   end
 end

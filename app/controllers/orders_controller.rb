@@ -1,28 +1,29 @@
-# Allow users to create and see their current/past orders.
+# Allow users to create and see their past filled orders.
 class OrdersController < ApplicationController
+  before_filter :authenticate_user!
   respond_to :json
 
   # GET /orders
   def index
-    @orders = current_user.orders
+    @orders = current_user.orders.filled
 
     respond_with @orders
   end
 
+  # Check out the current_user's "cart" Order.
+  #
   # POST /orders
   def create
-    @order = Order.create creatable_params
-
-    if @order.save
-      respond_with @order
+    if current_user.cart.checkout params[:stripe_token]
+      respond_with orders_path(id: current_user.cart.id)
     else
-      render json: { errors: @order.errors.full_messages }
+      render json: { errors: @cart.errors.full_messages }
     end
   end
 
   # GET /orders/1
   def show
-    @order = Order.find params[:id]
+    @order = current_user.orders.find params[:id]
     respond_with @order
   rescue ActiveRecord::RecordNotFound
     render json: {

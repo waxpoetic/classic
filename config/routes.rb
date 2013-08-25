@@ -4,10 +4,8 @@ WaxPoetic::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes self
 
-  resources :users, only: %w(show) do
-    resources :orders, only: %w(index show)
-    resource :cart, only: %w(show)
-  end
+  resources :orders, only: %w(index show create)
+  resource :cart, only: %w(show)
 
   resources :releases, only: %w(index show) do
     resources :products, only: %w(index show) do
