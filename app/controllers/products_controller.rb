@@ -27,13 +27,13 @@ class ProductsController < ApplicationController
   private
   def find_release
     @release = Release.find params[:release_id]
-  rescue ActiveRecord::RecordNotFound
-    render json: { errors: [ 'Release not found.' ] }
+    render json: { errors: [ 'Release not found.' ] }, status: 404 and return \
+      unless @release.present?
   end
 
   def find_product
     @product = @release.products.find params[:id]
-  rescue ActiveRecord::RecordNotFound
-    render json: { errors: [ "Version not found." ] }
+    render json: { errors: [ "Version not found." ] } and return \
+      unless @product.present?
   end
 end

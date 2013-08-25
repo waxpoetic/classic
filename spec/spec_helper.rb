@@ -35,9 +35,13 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  # Always include Devise helpers in controller tests
+  config.include Devise::TestHelpers, :type => :controller
+  config.include ControllerAuthorization, :type => :controller
 end
 
-# CarrierWave test configuration
+# Upload files locally when testing
 CarrierWave.configure do |config|
   config.storage = :file
   config.enable_processing = false

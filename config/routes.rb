@@ -17,6 +17,8 @@ WaxPoetic::Application.routes.draw do
     resources :releases, only: %w(index)
   end
 
+  get '/cart' => 'orders#cart'
+
   root to: 'application#index'
   match '/*path' => 'application#index'
 end

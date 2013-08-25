@@ -3,6 +3,8 @@ class OrdersController < ApplicationController
   before_filter :authenticate_user!
   respond_to :json
 
+  # List of all orders by this user.
+  #
   # GET /orders
   def index
     @orders = current_user.orders.filled
@@ -31,5 +33,12 @@ class OrdersController < ApplicationController
         "Couldn't find Order with ID=#{params[:id]}"
       ]
     }
+  end
+
+  # GET /cart
+  def cart
+    @order = current_user.cart
+
+    respond_with @order
   end
 end
