@@ -1305,6 +1305,11 @@ $topbar-link-font-size: emCalc(16);
 .spaced .row {
   margin-top: 25px;
 }
+
+.title-area {
+  padding-left: 0;
+}
+
 .releases a {
   display: block;
   //@include grid-column(6);
@@ -1435,4 +1440,8 @@ $topbar-link-font-size: emCalc(16);
       color: #666;
     }
   }
+}
+
+.shop {
+  margin-bottom: 35px;
 }

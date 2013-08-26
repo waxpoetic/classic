@@ -1,14 +1,14 @@
 .row
   .large-12.columns
     nav.top-bar
-      ul.title-area
+      ul.title-area.large-6.columns
         li.name
           linkTo 'index'
             img src='/assets/text.jpeg'
         li.toggle-topbar.menu-icon
           linkTo 'index'
             span menu
-      section.top-bar-section
+      section.top-bar-section.large-6.columns
         ul.left
           li
             linkTo 'artists' | artists
