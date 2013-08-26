@@ -1,11 +1,11 @@
-.row
+.home.row
   .large-6.columns
     img src='/assets/insignia.jpeg'
     h2 welcome to wax poetic
-    p we are an open source record label serving the
-      electronic music community. in addition to serving our tracks
-      in normal audio files, we also package them together in "stem"
-      format especially designed for remixing.
+    h4.subheader an open-source record label serving the electronic music community,
+      our mission is to enable producers everywhere to have access to the
+      music they enjoy for furthering their own musical interests.
   .releases.large-6.columns
+    h2 latest releases
     each releases
       WaxPoetic.ReleaseItemView
