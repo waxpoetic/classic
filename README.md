@@ -33,3 +33,4 @@ get the DB set up first!
 - Add javascript tests with Jasmine (run with Teaspoon)
 - Build online store
 - Add more pictures
+- Integrate responsive image features of Foundation
