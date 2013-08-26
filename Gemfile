@@ -20,6 +20,7 @@ group :assets do
   gem 'coffee-rails'
   gem 'zurb-foundation',  '>= 4.0'
   gem 'uglifier',         '~> 1.3'
+  gem 'font-awesome-rails'
 end
 
 gem 'ember-rails', '0.12.0'

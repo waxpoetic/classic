@@ -1,4 +1,6 @@
 .panel
+  linkTo 'releases'
+    i.icon-remove-sign
   h2 = name
   h4 by #{artistName}
   dl.information
