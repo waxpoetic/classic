@@ -1402,7 +1402,7 @@ $topbar-link-font-size: emCalc(16);
 }
 
 .markdown {
-  ol, li {
+  ol, ul {
     margin-left: 22px;
   }
 }
@@ -1410,5 +1410,29 @@ $topbar-link-font-size: emCalc(16);
 #release {
   .panel {
     width: 642px;
+  }
+
+  .row {
+    margin-bottom: 15px;
+  }
+
+  .title {
+    margin-left: 0px;
+  }
+
+  .information {
+    dt {
+      font-size: 1.4375em;
+    }
+  }
+
+  a.close-button {
+    color: #000;
+    float: right;
+    font-size: 30px;
+
+    &:hover {
+      color: #666;
+    }
   }
 }

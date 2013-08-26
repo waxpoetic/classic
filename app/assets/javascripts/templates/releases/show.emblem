@@ -1,15 +1,17 @@
 .panel
-  linkTo 'releases'
-    i.icon-remove-sign
-  h2 = name
-  h4 by #{artistName}
-  dl.information
-    dt released on
-    dd = date releasedOn
+  .title.row
+    linkTo 'releases' class='close-button'
+      i.icon-remove-sign
+    h2 = name
+    h4 by #{artistName}
+  .information.row
+    dl.large-6.columns
+      dt released on
+      dd = date releasedOn
 
-    dt track listing
-    dd = markdown tracks
-
-    if notes
-      dt release notes
-      dd = markdown notes
+      dt track listing
+      dd = markdown tracks
+    img.large-6.columns src=cover alt=name
+  .notes.row
+    .large-12.columns
+      markdown notes
