@@ -1,6 +1,9 @@
 env:
   global:
-    - secure: PavryfczFWvhCn9SqF+f0gloihPFjxQprs80F2473aX/AdMiiaL4rRedSyKdVvJWfiuEw//1onaeGdwyucEe05ervkou9hu2wmRkT5EWsoqGAKa4PbGkEhqWKj0n3Byw2vKH+Z4Mie8Y5/tTGT6NyPs1r6KeEzb3kmLMwOTchHk=
+  - secure: PavryfczFWvhCn9SqF+f0gloihPFjxQprs80F2473aX/AdMiiaL4rRedSyKdVvJWfiuEw//1onaeGdwyucEe05ervkou9hu2wmRkT5EWsoqGAKa4PbGkEhqWKj0n3Byw2vKH+Z4Mie8Y5/tTGT6NyPs1r6KeEzb3kmLMwOTchHk=
+  - secure: NIzzLPSpy8dAvppP1Zj4LEcOBrL642IoERozg/2qII9y9tUeousKJi5DbEvePK3uUVfkgTvDatElgpZWvNYIEdLwhasLMf7mVisC4EVDZlpD9aG0E53s3gle30iuFgRgr05yiA7DwBLxFjM7QqvWkn7XH2wU109fwXvP1xBfZbo=
+  - TO=production
+  - REVISION=$(git rev-parse HEAD)
 language: ruby
 bundler_args: --without=development
 before_install:
@@ -18,4 +21,5 @@ after_success:
 - echo '   UserKnownHostsFile=/dev/null' >> ~/.ssh/config
 - heroku keys:clear
 - yes | heroku keys:add
-- yes | git push heroku master
+- git push heroku master
+- yes | bundle exec rake airbrake:deploy
