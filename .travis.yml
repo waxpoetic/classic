@@ -4,6 +4,7 @@ env:
   - secure: NIzzLPSpy8dAvppP1Zj4LEcOBrL642IoERozg/2qII9y9tUeousKJi5DbEvePK3uUVfkgTvDatElgpZWvNYIEdLwhasLMf7mVisC4EVDZlpD9aG0E53s3gle30iuFgRgr05yiA7DwBLxFjM7QqvWkn7XH2wU109fwXvP1xBfZbo=
   - TO=production
   - REVISION=$(git rev-parse HEAD)
+  - REPO=waxpoeticrecords.com
 language: ruby
 bundler_args: --without=development
 before_install:
@@ -22,4 +23,4 @@ after_success:
 - heroku keys:clear
 - yes | heroku keys:add
 - git push heroku master
-- yes | bundle exec rake airbrake:deploy
+- yes | bundle exec rake airbrake:deploy USER=tubbo
