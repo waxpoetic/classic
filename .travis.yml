@@ -5,6 +5,9 @@ env:
   - TO=production
   - REVISION=$(git rev-parse HEAD)
   - REPO=waxpoeticrecords.com
+branches:
+  only:
+    - master
 language: ruby
 bundler_args: --without=development
 before_install:
