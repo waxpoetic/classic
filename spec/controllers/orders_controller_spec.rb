@@ -1,15 +1,15 @@
 require 'spec_helper'
 
 describe OrdersController do
-  before { sign_in! }
   fixtures :orders
+  let(:user) { users :tubbo }
   let(:past_order) { orders :wonderbars_discography }
 
   context "viewing all order history" do
-    before { get :index }
+    before { get :index, user_id: user.id, format: :json }
 
     it "responds successfully" do
-      expect(response).to be_success
+      expect(response.status).to eq(200)
     end
 
     it "includes the past order in the results" do
@@ -18,7 +18,7 @@ describe OrdersController do
   end
 
   context "viewing a past order" do
-    before { get :show, id: past_order.id }
+    before { get :show, user_id: user.id, id: past_order.id, format: :json }
 
     it "responds successfully" do
       expect(response).to be_success
@@ -31,7 +31,7 @@ describe OrdersController do
 
   context "viewing the current order" do
     it "shows your cart" do
-      get :cart
+      get :cart, user_id: user.id
 
       response.should be_success
     end
