@@ -1,9 +1,11 @@
-# Represents a charge made by [Stripe](http://stripe.com), which can
-# only be built off an Order that was saved in the database and is
-# valid.
-
 require 'stripe'
 require 'active_model/errors'
+
+# Represents a charge made by [Stripe](http://stripe.com), which can
+# only be built off an Order that was saved in the database and is
+# valid. The basic API client to Stripe, this class is responsible for
+# mmodeling charges created on Stripe's side to our application's
+# environment.
 
 class Charge
   attr_reader :order, :errors
@@ -18,12 +20,15 @@ class Charge
   # `false` if there was an error with the card and add those errors to
   # the errors object.
   def save
-    build_stripe_charge
-
-    true
+    @saved = build_stripe_charge
   rescue Stripe::CardError => error
-    errors.add :credit_card, error.message
+    errors.add :credit_card, "has been declined."
     false
+  end
+
+  # Report whether the Stripe::Charge successfully created
+  def success?
+    @saved
   end
 
   # Find or build a "customer" on Stripe's server that represents the
@@ -41,6 +46,5 @@ class Charge
       amount: order.total,
       description: "Online product order ##{order.id}",
       currency: 'usd'
-    true
   end
 end

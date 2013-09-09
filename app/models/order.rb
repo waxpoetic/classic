@@ -7,7 +7,8 @@ class Order < ActiveRecord::Base
   has_many :product_orders
   has_many :products, through: :product_orders
 
-  before_validation :ensure_not_checked_out
+  before_validation :ensure_not_checked_out,
+                    :calculate_total_if_not_specified
 
   validates :total, presence: true
   validates :is_checked_out, presence: true
@@ -35,16 +36,24 @@ class Order < ActiveRecord::Base
     entry.destroy
   end
 
+  # Test whether a given Product is included in this Order.
   def include? product
     products.map(&:id).include? product.id
   end
 
-  def checkout with_token
+  # Perform a "checkout" of this order by creating a Charge on Stripe
+  # and updating the database with a true/false result as to whether the
+  # charge succeeded. All Stripe errors made during API calls are stored
+  # in the Charge's ActiveModel::Errors object.
+  def checkout with_token=''
     return true if is_checked_out?
-
     @stripe_token = with_token
     @charge = Charge.new self
+    update_database_with_charge
+  end
 
+  private
+  def update_database_with_charge
     if @charge.save
       update_attributes is_checked_out: true
     else
@@ -55,8 +64,11 @@ class Order < ActiveRecord::Base
     is_checked_out?
   end
 
-  private
   def ensure_not_checked_out
     self.is_checked_out ||= false
+  end
+
+  def calculate_total_if_not_specified
+    self.total ||= products.pluck(:price).sum
   end
 end

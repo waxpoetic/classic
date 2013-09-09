@@ -1,18 +1,5 @@
 require 'spec_helper'
 
-class Charge
-  def customer
-    cust = OpenStruct.new
-    cust.id = 1
-    cust
-  end
-
-  protected
-  def build_stripe_charge
-    true
-  end
-end
-
 describe Order do
   fixtures :products, :users
   let(:product) { products :just_the_start_ose }
@@ -20,7 +7,13 @@ describe Order do
   subject { Order.new user: user }
 
   context "before being checked out" do
-    before { subject.is_checked_out = false }
+    before do
+      subject.is_checked_out = false
+      subject.stub(:update_database_with_charge) do
+        subject.update_attributes(is_checked_out: true)
+        true
+      end
+    end
 
     it "collects products together" do
       expect(subject.add(product)).to be_valid
@@ -39,15 +32,16 @@ describe Order do
       expect(subject.total).to eq(product.price)
     end
 
-    it "makes the charge on stripe" do
-      expect(subject.checkout('')).to be_true, \
-        "#{subject.errors.full_messages}"
-      expect(subject.charge).to be_a Charge
-    end
+    context "when checking out" do
+      before { subject.checkout }
 
-    it "confirms that the charge was made to the user" do
-      expect(subject.checkout('')).to be_true, \
-      "#{subject.errors.full_messages}"
+      it "posts the charge to stripe" do
+        expect(subject.charge).to be_a Charge
+      end
+
+      it "confirms that the charge was made to the user" do
+        expect(subject.charge).to be_success
+      end
     end
   end
 
