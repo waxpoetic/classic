@@ -1388,7 +1388,7 @@ $topbar-link-font-size: emCalc(16);
       @include overlay-positioning;
       width: 970px;
       background: #777;
-      opacity: 0.85;
+      opacity: 0.25;
     }
 
     h2.text {
@@ -1396,6 +1396,7 @@ $topbar-link-font-size: emCalc(16);
       color: darken(#777, 15%);
       font-size: 48px;
       padding-left: 560px;
+      padding-top: 300px;
       -webkit-text-stroke: 1px darken(#777, 10%);
     }
   }
@@ -1450,4 +1451,14 @@ $topbar-link-font-size: emCalc(16);
 
 .shop {
   margin-bottom: 35px;
+}
+
+#back {
+  float: right;
+  font-size: 16px;
+  font-weight: bold;
+
+  span {
+    margin-right: 7px;
+  }
 }

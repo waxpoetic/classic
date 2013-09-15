@@ -10,5 +10,5 @@
       = markdown members
     .row
       linkTo 'artists' title="back to top" id="back"
-        span style="padding-left:7px" back
+        span back
         i.icon-level-up
