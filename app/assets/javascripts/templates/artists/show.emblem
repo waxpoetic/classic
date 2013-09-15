@@ -8,3 +8,7 @@
     .row
       h4 members
       = markdown members
+    .row
+      linkTo 'artists' title="back to top" id="back"
+        span style="padding-left:7px" back
+        i.icon-level-up
