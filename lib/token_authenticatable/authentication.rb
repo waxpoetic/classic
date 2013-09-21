@@ -12,10 +12,6 @@ module UserAuthentication
     sign_in found_user, store: false
   end
 
-  def find_or_set_user_object
-    @user ||= User.find(user_id) || current_user
-  end
-
   private
   def authenticated_with_token?
     Devise.secure_compare found_user.authentication_token, user_token
@@ -31,9 +27,5 @@ module UserAuthentication
 
   def user_token
     params[:user_token].presence
-  end
-
-  def user_id
-    params[:id] || params[:user_id]
   end
 end

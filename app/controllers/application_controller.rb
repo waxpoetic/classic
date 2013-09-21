@@ -1,12 +1,15 @@
-class ApplicationController < ActionController::Base
-  protect_from_forgery
-  before_filter :handle_html_requests
+require 'token_authenticatable/authentication'
+require 'handle_html_requests'
+require 'user_finder'
 
-  private
-  def handle_html_requests
-    unless params[:controller] =~ /admin/ || "#{params[:format]}" == 'json'
-      return if request.xhr?
-      respond_to { |format| format.html { render 'application/index' } }
-    end
-  end
+# Methods inherited by all controllers. Enables optional token
+# authentication, handling HTML requests, and finding users by
+# current_user or ID.
+
+class ApplicationController < ActionController::Base
+  include TokenAuthenticatable::Authentication
+  include HandleHtmlRequests
+  include UserFinder
+
+  protect_from_forgery
 end

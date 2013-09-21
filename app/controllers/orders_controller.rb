@@ -1,13 +1,11 @@
-require 'concerns/user_authentication'
-
 # Allow users to create and see their past filled orders. Requires a
 # user to be authenticated for most actions.
 
 class OrdersController < ApplicationController
-  include UserAuthentication
   respond_to :json
+
   before_filter :authenticate_user_from_token!
-  before_filter :find_or_set_user_object
+  before_filter :find_or_set_user
 
   # List of all orders by this user.
   #

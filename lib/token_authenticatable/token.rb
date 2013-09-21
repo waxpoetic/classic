@@ -3,7 +3,10 @@ require 'active_support/concern'
 module TokenAuthenticatable
   extend ActiveSupport::Concern
 
-  included { before_save :ensure_authentication_token }
+  included do
+    before_validation :ensure_authentication_token
+    validate :authentication_token, presence: true
+  end
 
   def ensure_authentication_token
     self.authentication_token = generate_authentication_token \

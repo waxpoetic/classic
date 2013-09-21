@@ -1,10 +1,11 @@
 # View the various versions of each Release that's distributed on this
 # site.
 class ProductsController < ApplicationController
+  respond_to :json
+
   before_filter :find_release
   before_filter :find_product, only: %w(show buy)
-  before_filter :authenticate_user!, only: %w(buy)
-  respond_to :json
+  before_filter :find_or_set_user, only: %w(buy)
 
   def index
     @products = @release.products
