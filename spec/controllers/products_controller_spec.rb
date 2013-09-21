@@ -7,7 +7,7 @@ describe ProductsController do
   before { sign_in! }
 
   context "listing all products in a release" do
-    before { get :index, release_id: release.id }
+    before { get :index, format: :json, release_id: release.id }
 
     it "finds the release" do
       expect(assigns(:release)).to_not be_nil
@@ -26,7 +26,7 @@ describe ProductsController do
   end
 
   context "showing a single product of a release" do
-    before { get :show, release_id: release.id, id: product.id }
+    before { get :show, format: :json, release_id: release.id, id: product.id }
 
     it "finds the release" do
       expect(assigns(:release)).to eq(release)
@@ -42,7 +42,7 @@ describe ProductsController do
   end
 
   context "adding a product to the cart" do
-    before { get :buy, release_id: release.id, id: product.id }
+    before { get :buy, format: :json, release_id: release.id, id: product.id }
 
     it "finds the release" do
       expect(assigns(:release)).to eq(release)
