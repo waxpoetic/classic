@@ -46,3 +46,12 @@ CarrierWave.configure do |config|
   config.storage = :file
   config.enable_processing = false
 end
+
+# HTTP mocking
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/fixtures/cassettes'
+  c.hook_into :webmock
+  c.ignore_request do |request|
+    URI(request.uri).path =~ %r(v1/tokens)
+  end
+end

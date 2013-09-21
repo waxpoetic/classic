@@ -1,3 +1,4 @@
 wonderbars_discography:
   user: tubbo
-
+  total: 1000
+  is_checked_out: false
