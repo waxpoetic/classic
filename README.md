@@ -9,6 +9,17 @@ and [Ember.js](http://emberjs.com), with a major "tip of the hat" to
 [Zurb Foundation](http://foundation.zurb.com) for its capability to
 "rapid prototype" CSS and JS interaction.
 
+## Features
+
+- Artist and release catalog
+- Online store using [Stripe](http://stripe.com) for payment processing
+
+### Roadmap
+
+- Add integration tests with Capybara
+- Add javascript tests with Jasmine (run with Teaspoon)
+- Integrate responsive image features of Foundation
+
 ## Development
 
 Did you find a bug, or do you just want to see how it all "ticks"? The
@@ -27,10 +38,24 @@ locally and in production (Heroku). Run `bundle exec foreman start` to
 get the app up and running. Don't forget to run `bundle exec rake db` to
 get the DB set up first!
 
-### Roadmap
+### Setup
 
-- Add integration tests with Capybara
-- Add javascript tests with Jasmine (run with Teaspoon)
-- Build online store
-- Add more pictures
-- Integrate responsive image features of Foundation
+Make sure you have [PostgreSQL](http://postgresql.org),
+[Bundler](http://gembundler.com) and [Ruby 1.9.3](http://ruby-lang.org)
+before continuing!
+
+Install the bundle:
+
+    $ bundle install
+
+Set up the database:
+
+    $ rake db
+
+Run tests if you need to:
+
+    $ rake test
+
+Start the server:
+
+    $ rails server
