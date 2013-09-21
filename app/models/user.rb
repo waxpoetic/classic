@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :timeoutable, :confirmable, :lockable, :token_authenticatable
+         :timeoutable, :confirmable, :lockable
   has_many :orders
 
   # The current order for the given user. If one can not be found, it
