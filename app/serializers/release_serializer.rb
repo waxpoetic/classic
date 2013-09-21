@@ -1,6 +1,6 @@
 class ReleaseSerializer < ActiveModel::Serializer
-  attributes :id, :name, :released_on, :catalog_number, :description,
-             :tracks, :cover, :catalog_number, :artist_name, :notes
+  attributes :id, :name, :released_on, :catalog_number,
+             :description, :tracks, :cover, :artist_name, :notes
   has_one :artist
 
   def cover
