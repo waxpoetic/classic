@@ -1,7 +1,13 @@
-# Allow users to create and see their past filled orders.
+require 'concerns/user_authentication'
+
+# Allow users to create and see their past filled orders. Requires a
+# user to be authenticated for most actions.
+
 class OrdersController < ApplicationController
+  include UserAuthentication
   respond_to :json
-  before_filter :find_user_or_set_to_current_user
+  before_filter :authenticate_user_from_token!
+  before_filter :find_or_set_user_object
 
   # List of all orders by this user.
   #
@@ -40,11 +46,5 @@ class OrdersController < ApplicationController
     @order = @user.cart
 
     respond_with @order
-  end
-
-  private
-  # TODO: Only allow admins to do this.
-  def find_user_or_set_to_current_user
-    @user = User.find(params[:user_id]) || current_user
   end
 end
