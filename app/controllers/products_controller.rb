@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
 
   before_filter :find_release
   before_filter :find_product, only: %w(show buy)
+  before_filter :authenticate_user!, only: %w(buy)
   before_filter :find_or_set_user, only: %w(buy)
 
   def index

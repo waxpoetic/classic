@@ -4,7 +4,7 @@
 class OrdersController < ApplicationController
   respond_to :json
 
-  before_filter :authenticate_user_from_token!
+  before_filter :authenticate_user!
   before_filter :find_or_set_user
 
   # List of all orders by this user.

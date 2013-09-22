@@ -1,10 +1,12 @@
 require 'spec_helper'
 
 describe ProductsController do
-  fixtures :releases, :products
+  include Devise::TestHelpers
+
+  fixtures :releases, :products, :users
+
   let(:release) { releases :boyfriend }
   let(:product) { products :boyfriend_wav }
-  before { sign_in! }
 
   context "listing all products in a release" do
     before { get :index, format: :json, release_id: release.id }
@@ -33,7 +35,7 @@ describe ProductsController do
     end
 
     it "responds successfully" do
-      expect(response).to be_success
+      expect(response).to be_success, "#{response.status}"
     end
 
     it "finds the product" do
@@ -42,7 +44,16 @@ describe ProductsController do
   end
 
   context "adding a product to the cart" do
-    before { get :buy, format: :json, release_id: release.id, id: product.id }
+    let(:user) { users :tubbo }
+
+    before do
+      get :buy, format: :json, release_id: release.id, id: product.id
+      sign_in user
+    end
+
+    it "is using the correct user" do
+      expect(assigns(:user)).to eq(user)
+    end
 
     it "finds the release" do
       expect(assigns(:release)).to eq(release)
@@ -53,12 +64,15 @@ describe ProductsController do
     end
 
     it "responds successfully" do
-      expect(response).to be_success
+      expect(response).to be_success, "#{response.status}"
     end
 
-    it "shows up in the current_user's cart" do
-      expect(@user.reload).to be_true
-      expect(@user.cart.products).to include(product)
+    context "in the user object" do
+      before { user.reload }
+
+      it "shows up in the cart" do
+        expect(user.cart.products).to include(product)
+      end
     end
   end
 end
