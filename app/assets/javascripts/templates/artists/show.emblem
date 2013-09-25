@@ -1,14 +1,29 @@
-.row
-  .large-6.columns
+.artist.row
+  .name.large-6.columns
     h2 = name
     img src=photo alt=name
-  .large-6.columns
-    .row
+  .info.large-6.columns
+    .biography.row
       = markdown description
-    .row
+    .members.row
       h4 members
       = markdown members
-    .row
-      linkTo 'artists' title="back to top" id="back"
-        span back
-        i.icon-level-up
+    .releases.row
+      h4 releases
+      .large-4.columns
+        dl
+          each release in releases
+            dd
+              linkTo 'releases.show' id
+                img src=release.cover
+                p = release.catalog_number
+          else
+            p no releases yet, stay tuned!
+
+        li
+          linkTo releases.show id
+            = release.name
+  .back.row.large-12.columns
+    linkTo 'artists' title="back to top" id="back"
+      span back
+      i.icon-level-up

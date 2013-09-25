@@ -11,5 +11,4 @@
             h2.text
               = name
 .row
-  #artist.large-12.columns
-    outlet
+  outlet
