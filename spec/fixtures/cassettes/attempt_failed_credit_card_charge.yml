@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.stripe.com/v1/charges
     body:
       encoding: US-ASCII
-      string: amount=1000&card=tok_2cCr9I9l14EnmA&description=Online%20product%20order%20%23729886336&currency=usd
+      string: amount=1000&card=tok_2jQDN1IF7vJod4&description=Online%20product%20order%20%23729886336&currency=usd
     headers:
       Accept:
       - ! '*/*; q=0.5, application/xml'
@@ -18,9 +18,9 @@ http_interactions:
       Content-Type:
       - application/x-www-form-urlencoded
       X-Stripe-Client-User-Agent:
-      - ! '{"bindings_version":"1.8.6","lang":"ruby","lang_version":"1.9.3 p448 (2013-06-27)","platform":"x86_64-darwin12.4.0","publisher":"stripe","uname":"Darwin
-        dolphin.local 12.5.0 Darwin Kernel Version 12.5.0: Mon Jul 29 16:33:49 PDT
-        2013; root:xnu-2050.48.11~1/RELEASE_X86_64 x86_64"}'
+      - ! '{"bindings_version":"1.8.6","lang":"ruby","lang_version":"1.9.3 p448 (2013-06-27)","platform":"x86_64-darwin12.5.0","publisher":"stripe","uname":"Darwin
+        dolphin.local 12.5.0 Darwin Kernel Version 12.5.0: Sun Sep 29 13:33:47 PDT
+        2013; root:xnu-2050.48.12~1/RELEASE_X86_64 x86_64"}'
       Content-Length:
       - '100'
   response:
@@ -31,26 +31,26 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sat, 21 Sep 2013 22:01:35 GMT
+      - Fri, 11 Oct 2013 04:17:30 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
       - '152'
       Connection:
       - keep-alive
-      Cache-Control:
-      - no-cache, no-store
-      Access-Control-Allow-Credentials:
-      - 'true'
       Access-Control-Allow-Methods:
       - GET, POST, HEAD, OPTIONS, DELETE
       Access-Control-Max-Age:
       - '300'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Cache-Control:
+      - no-cache, no-store
     body:
       encoding: US-ASCII
       string: ! "{\n  \"error\": {\n    \"message\": \"Your card was declined.\",\n
         \   \"type\": \"card_error\",\n    \"code\": \"card_declined\",\n    \"charge\":
-        \"ch_2cCrRv3BEeLfVt\"\n  }\n}\n"
+        \"ch_2jQDIXyRVHQjS8\"\n  }\n}\n"
     http_version: 
-  recorded_at: Sat, 21 Sep 2013 22:01:39 GMT
+  recorded_at: Fri, 11 Oct 2013 04:17:30 GMT
 recorded_with: VCR 2.5.0

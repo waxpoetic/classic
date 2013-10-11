@@ -33,7 +33,10 @@ describe Order do
     end
 
     context "when checking out" do
-      before { subject.checkout }
+      before do
+        subject.checkout
+        subject.charge.stub(:saved) { true }
+      end
 
       it "posts the charge to stripe" do
         expect(subject.charge).to be_a Charge

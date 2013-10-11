@@ -4,7 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :timeoutable, :confirmable, :lockable
-  has_many :orders
+
+  has_many :past_orders, class_name: 'Order', \
+    conditions: { is_checked_out: false }
+  has_many :unfulfilled_orders, class_name: 'Order', \
+    conditions: { is_checked_out: false }
 
   include TokenAuthenticatable::Token
 
@@ -12,14 +16,11 @@ class User < ActiveRecord::Base
   # will be created and subsequently persisted.
   def cart
     @current_order ||= begin
-      orders_not_checked_out = orders.where is_checked_out: false
-
-      if orders_not_checked_out.any?
-        orders_not_checked_out.first
+      if unfulfilled_orders.any?
+        unfulfilled_orders.first
       else
-        orders.create
+        unfulfilled_orders.create
       end
     end
   end
-
 end

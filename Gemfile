@@ -9,10 +9,10 @@ gem 'carrierwave'
 gem 'fog'
 gem 'puma'
 gem 'mini_magick'
-gem 'activeadmin'
 gem 'strong_parameters'
 gem 'asset_sync'
 gem 'stripe'
+gem 'devise'
 
 group :assets do
   gem 'jquery-rails',     '2.2.2'

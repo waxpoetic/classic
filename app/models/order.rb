@@ -18,10 +18,6 @@ class Order < ActiveRecord::Base
   scope :unfilled, -> { where is_checked_out: false }
   scope :filled, -> { where is_checked_out: true }
 
-  def total
-    read_attribute(:total).to_i
-  end
-
   # Add a product to the Order as a ProductOrder, and append its price
   # to the total price. If this Order has already been checked out,
   # return `false`.

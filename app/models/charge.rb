@@ -35,7 +35,7 @@ class Charge
   # Report whether the Stripe::Charge successfully created on the API
   # server or not.
   def success?
-    @saved
+    saved
   end
 
   # Find or build a "customer" on Stripe's server that represents the
@@ -43,7 +43,7 @@ class Charge
   # Order to help build the customer JSON payload.
   def customer
     @customer ||= begin
-      Stripe::Customer.create customer_params, ENV['STRIPE_SECRET_KEY']
+      Stripe::Customer.create customer_params, stripe_secret
     rescue Stripe::InvalidRequestError => error
       errors.add :customer, "could not be created: #{error.message}"
       nil
@@ -55,15 +55,15 @@ class Charge
   # Requires a valid Order object to succeed.
   def to_stripe
     @stripe_charge ||= begin
-
-      Stripe::Charge.create charge_params, ENV['STRIPE_SECRET_KEY']
+      Stripe::Charge.create charge_params, stripe_secret
     rescue Stripe::InvalidRequestError => error
-      errors.add :base, "Stripe::Charge Error: #{error.message}"
+      errors.add :base, "Billing Error: #{error.message}"
       nil
     end
   end
 
   private
+  attr_accessor :saved
   ATTRIBUTE_NAMES = %w(credit_card customer).reduce({}) { |memo, attribute|
     memo.merge attribute => attribute.humanize
   }.with_indifferent_access
@@ -74,7 +74,7 @@ class Charge
 
   def charge_params
     {
-      amount: order.total,
+      amount: order.total.to_i,
       card: order.stripe_token,
       description: "Online product order ##{order.id}",
       currency: 'usd'
@@ -83,5 +83,9 @@ class Charge
 
   def customer_params
     { email: order.user.email, card: order.stripe_token }
+  end
+
+  def stripe_secret
+    ENV['STRIPE_SECRET_KEY'] || ""
   end
 end

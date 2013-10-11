@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.stripe.com/v1/customers
     body:
       encoding: US-ASCII
-      string: email=tubbo%40psychedeli.ca&card=tok_2cCrv4YEzSwwoJ
+      string: email=tubbo%40psychedeli.ca&card=tok_2jQDJZc2AsRyRk
     headers:
       Accept:
       - ! '*/*; q=0.5, application/xml'
@@ -18,38 +18,53 @@ http_interactions:
       Content-Type:
       - application/x-www-form-urlencoded
       X-Stripe-Client-User-Agent:
-      - ! '{"bindings_version":"1.8.6","lang":"ruby","lang_version":"1.9.3 p448 (2013-06-27)","platform":"x86_64-darwin12.4.0","publisher":"stripe","uname":"Darwin
-        dolphin.local 12.5.0 Darwin Kernel Version 12.5.0: Mon Jul 29 16:33:49 PDT
-        2013; root:xnu-2050.48.11~1/RELEASE_X86_64 x86_64"}'
+      - ! '{"bindings_version":"1.8.6","lang":"ruby","lang_version":"1.9.3 p448 (2013-06-27)","platform":"x86_64-darwin12.5.0","publisher":"stripe","uname":"Darwin
+        dolphin.local 12.5.0 Darwin Kernel Version 12.5.0: Sun Sep 29 13:33:47 PDT
+        2013; root:xnu-2050.48.12~1/RELEASE_X86_64 x86_64"}'
       Content-Length:
       - '51'
   response:
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
     headers:
       Server:
       - nginx
       Date:
-      - Sat, 21 Sep 2013 22:01:46 GMT
+      - Fri, 11 Oct 2013 04:17:25 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '140'
+      - '1007'
       Connection:
       - keep-alive
-      Cache-Control:
-      - no-cache, no-store
-      Access-Control-Allow-Credentials:
-      - 'true'
       Access-Control-Allow-Methods:
       - GET, POST, HEAD, OPTIONS, DELETE
       Access-Control-Max-Age:
       - '300'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Cache-Control:
+      - no-cache, no-store
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains
     body:
       encoding: US-ASCII
-      string: ! "{\n  \"error\": {\n    \"type\": \"invalid_request_error\",\n    \"message\":
-        \"You cannot use a Stripe token more than once: tok_2cCrv4YEzSwwoJ\"\n  }\n}\n"
+      string: ! "{\n  \"object\": \"customer\",\n  \"created\": 1381465045,\n  \"id\":
+        \"cus_2jQDsQgPotWlp8\",\n  \"livemode\": false,\n  \"email\": \"tubbo@psychedeli.ca\",\n
+        \ \"metadata\": {},\n  \"account_balance\": 0,\n  \"cards\": {\n    \"object\":
+        \"list\",\n    \"count\": 1,\n    \"url\": \"/v1/customers/cus_2jQDsQgPotWlp8/cards\",\n
+        \   \"data\": [\n      {\n        \"id\": \"card_2jQDXywCAzo59o\",\n        \"object\":
+        \"card\",\n        \"last4\": \"1881\",\n        \"type\": \"Visa\",\n        \"exp_month\":
+        10,\n        \"exp_year\": 2014,\n        \"fingerprint\": \"qXF8ON7cTsiabPQD\",\n
+        \       \"customer\": \"cus_2jQDsQgPotWlp8\",\n        \"country\": \"US\",\n
+        \       \"address_city\": null,\n        \"cvc_check\": \"pass\"\n      }\n
+        \   ]\n  },\n  \"default_card\": \"card_2jQDXywCAzo59o\",\n  \"active_card\":
+        {\n    \"id\": \"card_2jQDXywCAzo59o\",\n    \"object\": \"card\",\n    \"last4\":
+        \"1881\",\n    \"type\": \"Visa\",\n    \"exp_month\": 10,\n    \"exp_year\":
+        2014,\n    \"fingerprint\": \"qXF8ON7cTsiabPQD\",\n    \"customer\": \"cus_2jQDsQgPotWlp8\",\n
+        \   \"country\": \"US\",\n    \"address_city\": null,\n    \"cvc_check\":
+        \"pass\"\n  }\n}\n"
     http_version: 
-  recorded_at: Sat, 21 Sep 2013 22:01:49 GMT
+  recorded_at: Fri, 11 Oct 2013 04:17:25 GMT
 recorded_with: VCR 2.5.0
