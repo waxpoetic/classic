@@ -7,7 +7,6 @@ require 'user_finder'
 # current_user or ID.
 
 class ApplicationController < ActionController::Base
-  include TokenAuthenticatable::Authentication
   include HandleHtmlRequests
   include UserFinder
 
