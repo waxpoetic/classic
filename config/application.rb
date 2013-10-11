@@ -77,6 +77,10 @@ module WaxPoetic
 
     # Send emails from localhost
     config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
+    config.generators do |g|
+      g.factory_girl false
+    end
   end
 end
 

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe UserSerializer do
-  fixtures :users
-  let(:user) { users :tubbo }
+  include TestUsers
+  let(:user) { users :customer }
   subject { UserSerializer.new user }
 
   it "exposes authentication_token as api_key" do

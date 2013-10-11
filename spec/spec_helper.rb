@@ -40,6 +40,7 @@ RSpec.configure do |config|
 
   # Always include Devise helpers in controller tests
   config.include Devise::TestHelpers, :type => :controller
+  config.include TestUsers
 end
 
 # Upload files locally when testing

@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 describe ProductsController do
-  include Devise::TestHelpers
-
-  fixtures :releases, :products, :users
+  fixtures :releases, :products
 
   let(:release) { releases :boyfriend }
   let(:product) { products :boyfriend_wav }
@@ -44,11 +42,11 @@ describe ProductsController do
   end
 
   context "adding a product to the cart" do
-    let(:user) { users :tubbo }
+    let(:user) { users :customer }
 
     before do
-      get :buy, format: :json, release_id: release.id, id: product.id
       sign_in user
+      get :buy, format: :json, release_id: release.id, id: product.id
     end
 
     it "is using the correct user" do

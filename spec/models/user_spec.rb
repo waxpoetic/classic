@@ -10,10 +10,6 @@ describe User do
 
   it "authenticates by email and password" do
     expect(subject.email).to be_present
-  end
-
-  it "authenticates by api token" do
-    expect(subject).to be_valid
-    expect(subject.authentication_token).to be_present
+    expect(subject.encrypted_password).to be_present
   end
 end

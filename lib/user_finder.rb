@@ -6,8 +6,6 @@ module UserFinder
     @user ||= begin
       user_from_params || current_user
     end
-
-    binding.pry
   end
 
   private

@@ -1,3 +1,0 @@
-tubbo:
-  email: 'tubbo@psychedeli.ca'
-  authentication_token: <%= Digest::SHA1.new.to_s %>

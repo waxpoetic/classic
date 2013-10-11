@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe Order do
-  fixtures :products, :users
+  fixtures :products
   let(:product) { products :just_the_start_ose }
-  let(:user) { users :tubbo }
+  let(:user) { users :customer }
   subject { Order.new user: user }
 
   context "before being checked out" do

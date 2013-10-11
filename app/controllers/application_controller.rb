@@ -1,4 +1,3 @@
-require 'token_authenticatable/authentication'
 require 'handle_html_requests'
 require 'user_finder'
 

@@ -1,5 +1,7 @@
-# Allow users to create and see their past filled orders. Requires a
-# user to be authenticated for most actions.
+# API for order history and current orders. POSTing a generated stripe
+# token to /orders will check out the current order ("cart") with
+# Stripe. Otherwise, you can GET /orders or /orders/:order_id to view
+# any past orders you've made.
 
 class OrdersController < ApplicationController
   respond_to :json
@@ -30,6 +32,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   def show
     @order = @user.orders.find params[:id]
+
     respond_with @order
   rescue ActiveRecord::RecordNotFound
     render json: {
@@ -39,6 +42,9 @@ class OrdersController < ApplicationController
     }
   end
 
+  # The unfulfilled order for the current user. If no such order exists,
+  # it is created.
+  #
   # GET /cart
   def cart
     @order = @user.cart

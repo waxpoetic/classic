@@ -1,4 +1,4 @@
-require 'token_authenticatable/token'
+# A user that has been authenticated into the system.
 
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
@@ -9,8 +9,6 @@ class User < ActiveRecord::Base
     conditions: { is_checked_out: false }
   has_many :unfulfilled_orders, class_name: 'Order', \
     conditions: { is_checked_out: false }
-
-  include TokenAuthenticatable::Token
 
   # The current order for the given user. If one can not be found, it
   # will be created and subsequently persisted.
