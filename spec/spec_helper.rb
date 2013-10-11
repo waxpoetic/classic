@@ -4,6 +4,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'vcr'
+require 'pry'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -39,7 +40,6 @@ RSpec.configure do |config|
 
   # Always include Devise helpers in controller tests
   config.include Devise::TestHelpers, :type => :controller
-  config.include ControllerAuthorization, :type => :controller
 end
 
 # Upload files locally when testing
