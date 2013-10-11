@@ -6,6 +6,20 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= csrf_meta_tags %>
+    <script>
+      window.Airbrake = [];
+      window.Airbrake.try = function(fn) {
+        try {
+          fn()
+        } catch(er) {
+          window.Airbrake.push(er);
+        }
+      };
+    </script>
+    <script defer src="https://ssljscdn.airbrake.io/airbrake-js-tracekit-sourcemap.min.js"
+            data-airbrake-project-id="<%= ENV['AIRRBAKE_PROJECT_ID'] %>"
+            data-airbrake-project-key="<%= ENV['AIRBRAKE_API_KEY'] %>"
+            data-airbrake-project-environment-name="<%= Rails.env %>"></script>
   </head>
   <body>
     <%= yield %>
