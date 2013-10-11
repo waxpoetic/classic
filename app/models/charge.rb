@@ -3,9 +3,7 @@ require 'active_model/errors'
 
 # Represents a charge made by [Stripe](http://stripe.com), which can
 # only be built off an Order that was saved in the database and is
-# valid. The basic API client to Stripe, this class is responsible for
-# mmodeling charges created on Stripe's side to our application's
-# environment.
+# valid.
 
 class Charge
   # An Order object, which is a record in the database, that stores all
