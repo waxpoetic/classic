@@ -3,11 +3,15 @@ require 'spec_helper'
 describe OrdersController do
   fixtures :orders
 
-  let(:user) { users :customer }
   let(:past_order) { orders :wonderbars_discography }
 
   context "when logged in" do
-    before { sign_in user }
+    let(:user) { users :customer }
+    before do
+      request.env["devise.mapping"] = Devise.mappings[:user]
+      user.confirm!
+      sign_in user
+    end
 
     context "viewing all order history" do
       before { get :index, user_id: user.id, format: :json }

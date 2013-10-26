@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :timeoutable, :confirmable, :lockable
 
+  has_many :orders
+
   has_many :past_orders, class_name: 'Order', \
     conditions: { is_checked_out: false }
   has_many :unfulfilled_orders, class_name: 'Order', \

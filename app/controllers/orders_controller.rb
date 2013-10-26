@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_or_set_user
 
-  # List of all orders by this user.
+  # List of all orders by this User.
   #
   # GET /orders
   def index
