@@ -41,35 +41,45 @@ describe ProductsController do
     end
   end
 
-  context "adding a product to the cart" do
+  context "when logged in" do
     let(:user) { users :customer }
-
     before do
+      request.env["devise.mapping"] = Devise.mappings[:user]
+      user.confirm!
       sign_in user
-      get :buy, format: :json, release_id: release.id, id: product.id
     end
 
-    it "is using the correct user" do
-      expect(assigns(:user)).to eq(user)
-    end
+    context "adds a product to the cart" do
+      before do
+        get :buy, {
+          format: :json,
+          release_id: release.id,
+          id: product.id
+        }
+      end
 
-    it "finds the release" do
-      expect(assigns(:release)).to eq(release)
-    end
+      it "and uses the correct user" do
+        expect(assigns(:user)).to eq(user)
+      end
 
-    it "finds the product" do
-      expect(assigns(:product)).to eq(product)
-    end
+      it "and finds the release" do
+        expect(assigns(:release)).to eq(release)
+      end
 
-    it "responds successfully" do
-      expect(response).to be_success, "#{response.status}"
-    end
+      it "and finds the product" do
+        expect(assigns(:product)).to eq(product)
+      end
 
-    context "in the user object" do
-      before { user.reload }
+      it "and responds successfully" do
+        expect(response).to be_success, "#{response.status}"
+      end
 
-      it "shows up in the cart" do
-        expect(user.cart.products).to include(product)
+      context "in the user object" do
+        before { user.reload }
+
+        it "shows up in the cart" do
+          expect(user.cart.products).to include(product)
+        end
       end
     end
   end

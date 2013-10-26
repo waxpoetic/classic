@@ -10,10 +10,8 @@ module UserFinder
 
   private
   def user_from_params
-    User.find user_id
-  end
-
-  def user_id
-    params[:id] || params[:user_id]
+    User.find params[:user_id]
+  rescue ActiveRecord::RecordNotFound
+    nil
   end
 end

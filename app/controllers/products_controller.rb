@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
 
   def buy
     if current_user.cart.add @product
-      redirect_to cart_path
+      respond_with current_user.cart
     else
       render json: { errors: current_user.cart.errors.full_messages }
     end
