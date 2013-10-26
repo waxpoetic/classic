@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.stripe.com/v1/charges
     body:
       encoding: US-ASCII
-      string: amount=1000&card=tok_2jQDN1IF7vJod4&description=Online%20product%20order%20%23729886336&currency=usd
+      string: amount=1000&card=tok_2p3r9AoTmbywyc&description=Online%20product%20order%20%23729886336&currency=usd
     headers:
       Accept:
       - ! '*/*; q=0.5, application/xml'
@@ -31,26 +31,26 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Fri, 11 Oct 2013 04:17:30 GMT
+      - Sat, 26 Oct 2013 05:35:28 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
       - '152'
       Connection:
       - keep-alive
-      Access-Control-Allow-Methods:
-      - GET, POST, HEAD, OPTIONS, DELETE
+      Cache-Control:
+      - no-cache, no-store
       Access-Control-Max-Age:
       - '300'
       Access-Control-Allow-Credentials:
       - 'true'
-      Cache-Control:
-      - no-cache, no-store
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
     body:
       encoding: US-ASCII
       string: ! "{\n  \"error\": {\n    \"message\": \"Your card was declined.\",\n
         \   \"type\": \"card_error\",\n    \"code\": \"card_declined\",\n    \"charge\":
-        \"ch_2jQDIXyRVHQjS8\"\n  }\n}\n"
+        \"ch_2p3rFMNswg2xkY\"\n  }\n}\n"
     http_version: 
-  recorded_at: Fri, 11 Oct 2013 04:17:30 GMT
+  recorded_at: Sat, 26 Oct 2013 05:35:32 GMT
 recorded_with: VCR 2.5.0

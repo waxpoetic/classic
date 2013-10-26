@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Charge do
-  fixtures :orders
+  fixtures :orders, :users
 
   context "when saving with a working card" do
     let(:token) do
@@ -20,6 +20,7 @@ describe Charge do
     let(:order) do
       order = orders :wonderbars_discography
       order.stripe_token = token
+      order.user = users :customer
       order
     end
     subject { Charge.new order }
@@ -34,6 +35,7 @@ describe Charge do
 
     context "finds or builds a customer on Stripe" do
       it "uses the user on the order" do
+        expect(subject.order.user).to be_present
         expect(subject.order.user.email).to be_present
       end
 
