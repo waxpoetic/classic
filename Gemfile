@@ -47,4 +47,7 @@ end
 
 group :production do
   gem 'airbrake'
+  gem 'redis-rails'
+  gem 'rails_12factor'
+  gem 'rack-cache'
 end
