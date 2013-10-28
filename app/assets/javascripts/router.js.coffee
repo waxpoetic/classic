@@ -15,5 +15,8 @@ WaxPoetic.Router.map () ->
       @route 'show', path: ':id'
     @route 'cart', path: 'cart'
     @route 'index', path: ''
+    @route 'releases', path: 'releases'
+    @route 'opensource', path: 'opensource'
+    @route 'merchandise', path: 'merchandise'
 
 WaxPoetic.Router.reopen location: 'history'

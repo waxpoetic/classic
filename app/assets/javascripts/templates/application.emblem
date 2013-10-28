@@ -16,6 +16,8 @@
             linkTo 'releases' | releases
           li
             linkTo 'shop' | shop
+  .large-12.columns
+    hr
 outlet
 
 footer.row

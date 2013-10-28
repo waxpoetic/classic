@@ -1451,6 +1451,21 @@ $topbar-link-font-size: emCalc(16);
 
 .shop {
   margin-bottom: 35px;
+
+  .side-nav {
+    left: 18px;
+
+    li a {
+      &.disabled {
+        color: #000;
+      }
+    }
+  }
+
+  .content {
+    padding-top: 10px;
+    left: 24px;
+  }
 }
 
 #back {
@@ -1462,3 +1477,5 @@ $topbar-link-font-size: emCalc(16);
     margin-right: 7px;
   }
 }
+
+

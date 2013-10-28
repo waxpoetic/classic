@@ -1,0 +1,4 @@
+.featured.row
+  .large-12.columns
+    h2 featured products
+    p The latest and greatest to hit the store

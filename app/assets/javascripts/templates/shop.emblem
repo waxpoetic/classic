@@ -1,20 +1,15 @@
 .shop.row
-  .retail.large-12.columns
-    h1 available online
-    p our online store is coming soon. in the meantime, if you just want the tracks
-      check out our pages on the following online retailers:
-    .row
-      .large-6.columns
-        a href='http://www.beatport.com/label/wax-poetic/27805' target='_blank'
-          img src='/assets/beatport.png' alt='beatport'
-      .large-6.columns
-        a href='https://itunes.apple.com/us/album/just-the-start-ep-single/id56145708' target='_blank'
-          img src='/assets/itunes.jpg' alt='itunes' style='width:150px'
-    p &nbsp;
-    .row
-      .large-6.columns
-        a href='https://play.spotify.com/artist/2nrkwnQWEqM20n92QC7Cdy' target='_blank'
-          img src='/assets/spotify.png' alt='spotify' style='width:150px'
-      .large-6.columns
-        a href='http://www.rdio.com/artist/The_Wonder_Bars/' target='_blank'
-          img src='/assets/rdio.png' alt='rdio' style='width:150px'
+  ul.side-nav.large-2.columns
+    li
+      h2 shop
+    li
+      linkTo 'shop.index' disabledWhen=controller.isHome | Featured
+    li.divider
+    li
+      linkTo 'shop.releases' | Releases
+    li
+      linkTo 'shop.opensource' | Open-Source
+    li
+      linkTo 'shop.merchandise' | Merchandise
+  .content.large-10.columns
+    outlet
