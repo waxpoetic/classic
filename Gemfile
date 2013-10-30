@@ -35,7 +35,6 @@ end
 
 group :development, :test do
   gem 'pry-rails'
-  gem 'teaspoon'
   gem 'konacha'
 end
 
