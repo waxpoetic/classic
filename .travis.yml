@@ -10,7 +10,6 @@ env:
 branches:
   only:
     - master
-    - store
 language: ruby
 rvm: 2.0.0-p247
 bundler_args: --without=development
