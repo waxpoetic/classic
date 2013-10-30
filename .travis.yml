@@ -5,6 +5,8 @@ env:
   - TO=production
   - REVISION=$(git rev-parse HEAD)
   - REPO=waxpoeticrecords.com
+  - DISPLAY:=99.0
+  - FORMAT=documentation
 branches:
   only:
     - master

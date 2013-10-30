@@ -36,11 +36,13 @@ end
 group :development, :test do
   gem 'pry-rails'
   gem 'teaspoon'
+  gem 'konacha'
 end
 
 group :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'poltergeist'
   gem 'vcr'
   gem 'webmock'
 end
