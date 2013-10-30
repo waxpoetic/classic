@@ -5,5 +5,3 @@
 require File.expand_path('../config/application', __FILE__)
 
 WaxPoetic::Application.load_tasks
-
-task :default => %w(db test deploy)
