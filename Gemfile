@@ -10,7 +10,6 @@ gem 'fog'
 gem 'puma'
 gem 'mini_magick'
 gem 'strong_parameters'
-gem 'asset_sync'
 gem 'stripe'
 gem 'devise'
 
@@ -51,4 +50,5 @@ group :production do
   gem 'redis-rails'
   gem 'rails_12factor'
   gem 'rack-cache'
+  gem 'asset_sync'
 end

@@ -7,13 +7,18 @@ class OrdersController < ApplicationController
   respond_to :json
 
   before_filter :authenticate_user!
-  before_filter :find_or_set_user
+  before_filter :find_or_set_user, only: %w(index show)
 
   # List of all orders by this User.
   #
   # GET /orders
+  # GET /users/1/orders
   def index
-    @orders = @user.orders
+    @orders = if current_user.is_admin?
+      Order.where search_params
+    else
+      current_user.orders.where search_params
+    end
 
     respond_with @orders
   end
@@ -22,14 +27,19 @@ class OrdersController < ApplicationController
   #
   # POST /orders
   def create
-    if @user.cart.checkout params[:stripe_token]
-      respond_with orders_path(id: current_user.cart.id)
+    @cart = current_user.cart
+
+    if @cart.checkout params[:stripe_token]
+      respond_with @cart
     else
       render json: { errors: @cart.errors.full_messages }
     end
   end
 
+  # Show a single order's details, including products.
+  #
   # GET /orders/1
+  # GET /users/1/orders/1
   def show
     @order = @user.orders.find params[:id]
 
@@ -47,7 +57,7 @@ class OrdersController < ApplicationController
   #
   # GET /cart
   def cart
-    @order = @user.cart
+    @order = current_user.cart
 
     respond_with @order
   end
