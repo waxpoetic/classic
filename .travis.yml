@@ -8,23 +8,11 @@ env:
 branches:
   only:
     - master
+    - store
 language: ruby
 rvm: 2.0.0-p247
 bundler_args: --without=development
 before_install:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
-before_script:
-- createuser -s wax_poetic && rake db:setup
-script: bundle exec rspec --format=documentation
-after_success:
-- gem install heroku
-- git remote add heroku git@heroku.com:waxpoetic.git
-- echo 'Host heroku.com' >> ~/.ssh/config
-- echo '   StrictHostKeyChecking no' >> ~/.ssh/config
-- echo '   CheckHostIP no' >> ~/.ssh/config
-- echo '   UserKnownHostsFile=/dev/null' >> ~/.ssh/config
-- heroku keys:clear
-- yes | heroku keys:add
-- git push heroku master
-- yes | bundle exec rake airbrake:deploy USER=tubbo
+script: bundle exec rake
