@@ -44,6 +44,9 @@ RSpec.configure do |config|
   # Always include Devise helpers in controller tests
   config.include Devise::TestHelpers, :type => :controller
   config.include TestUsers
+
+  config.include EmailSpec::Helpers, :type => :mailer
+  config.include EmailSpec::Matchers, :type => :mailer
 end
 
 # Upload files locally when testing

@@ -6,7 +6,12 @@
 # "catalog" that Release is meant to model.
 class Product < ActiveRecord::Base
   belongs_to :release
+
   validates :name, presence: true
   validates :price, presence: true
+  validates :is_merchandise, presence: true
+
   mount_uploader :file, MusicUploader
+
+  scope :merchandise, -> { where is_merchandise: true }
 end

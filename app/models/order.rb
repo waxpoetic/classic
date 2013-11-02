@@ -12,6 +12,7 @@ class Order < ActiveRecord::Base
 
   validates :total, presence: true
   validates :is_checked_out, presence: true
+  validates :is_merchandise, presence: true
 
   attr_accessor :stripe_token, :charge
 
@@ -50,6 +51,10 @@ class Order < ActiveRecord::Base
     @stripe_token = with_token
     @charge = Charge.new self
     update_database_with_charge
+  end
+
+  def is_merchandise?
+    products.merchandise.any?
   end
 
   private

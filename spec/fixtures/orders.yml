@@ -2,3 +2,8 @@ wonderbars_discography:
   user: customer
   total: 1000
   is_checked_out: false
+subatomica_shirt:
+  user: customer
+  total: 2500
+  is_checked_out: false
+  is_merchandise: true
