@@ -12,6 +12,7 @@ gem 'mini_magick'
 gem 'strong_parameters'
 gem 'stripe'
 gem 'devise'
+gem 'haml-rails'
 
 group :assets do
   gem 'jquery-rails',     '2.2.2'
