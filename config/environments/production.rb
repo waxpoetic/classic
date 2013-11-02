@@ -66,4 +66,10 @@ WaxPoetic::Application.configure do
 
   # Email with real host in production
   config.action_mailer.default_url_options = { host: 'waxpoeticrecords.com' }
+
+  # HTTP caching with Rack::Cache
+  config.action_dispatch.rack_cache = {
+    metastore:   "#{ENV['REDISTOGO_URL']}/1/cache-metadata",
+    entitystore: "#{ENV['REDISTOGO_URL']}/1/cache-objects"
+  }
 end
