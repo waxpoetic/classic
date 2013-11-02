@@ -4,18 +4,19 @@ require 'carrierwave/test/matchers'
 describe Release do
   include CarrierWave::Test::Matchers
 
-  fixtures :artists, :products
+  fixtures :artists, :products, :releases
   let(:artist) { artists :wonderbars }
   let(:product) { products :just_the_start_ose }
 
-  subject { Release.new \
-    name: 'just the start',
-    catalog_number: 'WXP666',
-    released_on: 3.days.ago.to_date,
-    artist: artist,
-    cover_image: 'jts.png',
-    products: [ product ]
-  }
+  subject do
+    Release.new \
+      name: 'just the start',
+      catalog_number: 'WXP666',
+      released_on: 3.days.ago.to_date,
+      artist: artist,
+      cover_image: 'jts.png',
+      products: [ product ]
+  end
 
   it "validates with all required params" do
     expect(subject).to be_valid

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ReleaseSerializer do
-  fixtures :releases
+  fixtures :releases, :artists
   let(:release) { releases :boyfriend }
   subject { ReleaseSerializer.new release }
 

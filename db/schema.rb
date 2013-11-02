@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131102012517) do
+ActiveRecord::Schema.define(:version => 20131102014947) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -43,12 +43,11 @@ ActiveRecord::Schema.define(:version => 20131102012517) do
 
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
-    t.decimal  "total",            :default => 0.0
-    t.boolean  "is_checked_out",   :default => false
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
-    t.boolean  "is_merchandise"
-    t.boolean  "has_been_shipped", :default => false
+    t.decimal  "total",           :default => 0.0
+    t.boolean  "is_checked_out",  :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.string   "tracking_number"
   end
 
   add_index "orders", ["user_id"], :name => "index_orders_on_user_id"
@@ -69,8 +68,9 @@ ActiveRecord::Schema.define(:version => 20131102012517) do
     t.string   "license"
     t.decimal  "price"
     t.integer  "release_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.boolean  "is_merchandise"
   end
 
   add_index "products", ["release_id"], :name => "index_products_on_release_id"

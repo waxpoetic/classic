@@ -3,8 +3,10 @@ just_the_start_ose:
   release: just_the_start
   price: 9.99
   file: 'justthestart.zip'
+  is_merchandise: false
 boyfriend_wav:
   name: 'boyfriend - 44.1/16 wav'
   release: boyfriend
   price: 2.79
   file: 'boyfriend.wav'
+  is_merchandise: false

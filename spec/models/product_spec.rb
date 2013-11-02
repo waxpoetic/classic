@@ -17,4 +17,8 @@ describe Product do
   it "must have a price" do
     expect(subject.price).to eq(9.99)
   end
+
+  it "must know if it's merchandise" do
+    expect(subject).to_not be_merchandise
+  end
 end

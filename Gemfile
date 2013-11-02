@@ -46,6 +46,7 @@ group :test do
   gem 'poltergeist'
   gem 'vcr'
   gem 'webmock'
+  gem 'email_spec'
 end
 
 group :production do

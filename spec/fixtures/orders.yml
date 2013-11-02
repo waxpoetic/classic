@@ -6,4 +6,4 @@ subatomica_shirt:
   user: customer
   total: 2500
   is_checked_out: false
-  is_merchandise: true
+  tracking_number: '2094839028309482390482'

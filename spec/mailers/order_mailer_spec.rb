@@ -1,11 +1,13 @@
 require "spec_helper"
 
 describe OrderMailer do
+  fixtures :orders
+
   context "with a merchandise order" do
     let(:order) { orders :subatomica_shirt }
 
     context "when the order has been processed" do
-      let(:email) { OrderMailer.processed(order).deliver }
+      let(:email) { OrderMailer.processed order }
 
       it "sends an email when the order has been processed" do
         expect(email).to have_subject(/\AYour order has been processed/)
@@ -17,7 +19,7 @@ describe OrderMailer do
     end
 
     context "when the order has been shipped" do
-      let(:email) { OrderMailer.shipped(order).deliver }
+      let(:email) { OrderMailer.shipped order }
 
       it "sends an email when the order has shipped" do
         expect(email).to have_subject(/\AYour order has been shipped/)
@@ -33,7 +35,7 @@ describe OrderMailer do
     let(:order) { orders :wonderbars_discography }
 
     context "when the order has been processed" do
-      let(:email) { OrderMailer.downloadable(order).deliver }
+      let(:email) { OrderMailer.downloadable order }
 
       it "sends an email when an order is ready for download" do
         expect(email).to have_subject(/\AYour order is ready for download/)

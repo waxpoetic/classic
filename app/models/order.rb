@@ -12,7 +12,10 @@ class Order < ActiveRecord::Base
 
   validates :total, presence: true
   validates :is_checked_out, presence: true
-  validates :has_been_shipped, presence: true
+  validates :tracking_number, :length => 24..128, :allow_nil => true
+  validate :shipment_has_merchandise, :if => :shipped?
+
+  after_validation :send_email_if_shipped
 
   attr_accessor :stripe_token, :charge
 
@@ -37,8 +40,8 @@ class Order < ActiveRecord::Base
     entry.destroy
   end
 
-  def ship!
-    update_attributes has_been_shipped: was_shipped
+  def shipped?
+    tracking_number.present?
   end
 
   # Test whether a given Product is included in this Order.
@@ -62,6 +65,8 @@ class Order < ActiveRecord::Base
   end
 
   private
+  NOT_MERCH_MSG = "Order can not be shipped, not merchandise"
+
   def update_database_with_charge
     if @charge.save
       update_attributes is_checked_out: true
@@ -74,8 +79,8 @@ class Order < ActiveRecord::Base
   end
 
   def order_process_email
-    return OrderMailer.processed order if is_merchandise?
-    OrderMailer.downloadable order
+    return OrderMailer.processed(self) if is_merchandise?
+    OrderMailer.downloadable(self)
   end
 
   def ensure_not_checked_out
@@ -86,12 +91,11 @@ class Order < ActiveRecord::Base
     self.total ||= products.pluck(:price).sum
   end
 
-  def was_shipped
-    @was_shipped ||= if is_merchandise?
-      OrderMailer.shipped(order).deliver
-    else
-      logger.error "Order ##{id} can not be shipped, it has no merchandise"
-      false
-    end
+  def send_email_if_shipped
+    OrderMailer.shipped(order).deliver if shipped?
+  end
+
+  def shipment_has_merchandise
+    errors.add :base, NOT_MERCH_MSG unless is_merchandise?
   end
 end
