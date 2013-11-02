@@ -4,5 +4,5 @@ describe 'Artist', ->
   before ->
     @artist = new WaxPoetic.Artist()
 
-  it "is not nil", ->
-    expect(@artist).to.be.a 'WaxPoetic.Artist'
+  it "is truthy", ->
+    expect(@artist).to.be.ok

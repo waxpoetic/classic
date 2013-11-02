@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
   # GET /users/1/orders
   def index
     @orders = if current_user.is_admin?
-      Order.where search_params
+      Order.where(search_params).order(order_params)
     else
       current_user.orders.where search_params
     end
@@ -60,5 +60,14 @@ class OrdersController < ApplicationController
     @order = current_user.cart
 
     respond_with @order
+  end
+
+  private
+  def search_params
+    params.permit :id, :is_checked_out, :user_id
+  end
+
+  def order_params
+    params.permit :id, :is_checked_out, :total
   end
 end
