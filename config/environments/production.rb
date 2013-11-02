@@ -1,6 +1,4 @@
 WaxPoetic::Application.configure do
-  # Settings specified here will take precedence over those in config/application.rb
-
   # Code is not reloaded between requests
   config.cache_classes = true
 
@@ -26,10 +24,10 @@ WaxPoetic::Application.configure do
 
   # Specifies the header that your server uses for sending files
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
-  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
+  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   # See everything in the log (default is :info)
   # config.log_level = :debug
@@ -37,11 +35,8 @@ WaxPoetic::Application.configure do
   # Prepend all log lines with the following tags
   # config.log_tags = [ :subdomain, :uuid ]
 
-  # Use a different logger for distributed setups
-  # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
-
-  # Use a different cache store in production
-  config.cache_store = :redis_store
+  # Use the Redis cache store in production
+  config.cache_store = :redis_store, "#{ENV['REDISTOGO_URL']}/0/cache"
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   config.action_controller.asset_host = 'http://files.waxpoeticrecords.com.s3.amazonaws.com'
