@@ -12,7 +12,7 @@ class Order < ActiveRecord::Base
 
   validates :total, presence: true
   validates :is_checked_out, presence: true
-  validates :is_merchandise, presence: true
+  validates :has_been_shipped, presence: true
 
   attr_accessor :stripe_token, :charge
 
@@ -37,6 +37,10 @@ class Order < ActiveRecord::Base
     entry.destroy
   end
 
+  def ship!
+    update_attributes has_been_shipped: was_shipped
+  end
+
   # Test whether a given Product is included in this Order.
   def include? product
     products.map(&:id).include? product.id
@@ -50,7 +54,7 @@ class Order < ActiveRecord::Base
     return true if is_checked_out?
     @stripe_token = with_token
     @charge = Charge.new self
-    update_database_with_charge
+    update_database_with_charge and order_process_email.deliver
   end
 
   def is_merchandise?
@@ -69,11 +73,25 @@ class Order < ActiveRecord::Base
     is_checked_out?
   end
 
+  def order_process_email
+    return OrderMailer.processed order if is_merchandise?
+    OrderMailer.downloadable order
+  end
+
   def ensure_not_checked_out
     self.is_checked_out ||= false
   end
 
   def calculate_total_if_not_specified
     self.total ||= products.pluck(:price).sum
+  end
+
+  def was_shipped
+    @was_shipped ||= if is_merchandise?
+      OrderMailer.shipped(order).deliver
+    else
+      logger.error "Order ##{id} can not be shipped, it has no merchandise"
+      false
+    end
   end
 end

@@ -13,6 +13,8 @@ gem 'strong_parameters'
 gem 'stripe'
 gem 'devise'
 gem 'haml-rails'
+gem 'resque'
+gem 'resque_mailer'
 
 group :assets do
   gem 'jquery-rails',     '2.2.2'
