@@ -12,4 +12,6 @@ branches:
 language: ruby
 rvm: 2.0.0-p247
 bundler_args: --without=development
-script: bundle exec rake
+before_script: bundle exec rake db db:test:prepare
+script: bundle exec rake test
+after_script: bundle exec rake deploy
