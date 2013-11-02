@@ -40,9 +40,12 @@ get the DB set up first!
 
 ### Setup
 
-Make sure you have [PostgreSQL](http://postgresql.org),
-[Bundler](http://gembundler.com) and [Ruby 1.9.3](http://ruby-lang.org)
-before continuing!
+Make sure you have the following installed before continuing:
+
+- [PostgreSQL](http://postgresql.org) for the database
+- [Bundler](http://gembundler.com) to manage dependencies
+- [Ruby 2.0.0](http://ruby-lang.org) to run the app
+- [Redis](http://redis.io) for the cache and queue layer
 
 Install the bundle:
 
