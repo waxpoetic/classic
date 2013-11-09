@@ -13,7 +13,7 @@ gem 'strong_parameters'
 gem 'stripe'
 gem 'devise'
 gem 'haml-rails'
-gem 'resque'
+gem 'resque', '~> 1.25'
 gem 'resque_mailer'
 
 group :assets do
