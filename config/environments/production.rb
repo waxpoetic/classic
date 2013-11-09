@@ -22,9 +22,11 @@ WaxPoetic::Application.configure do
   # config.assets.manifest = YOUR_PATH
   config.assets.prefix = '/assets'
 
-  # Specifies the header that your server uses for sending files
-  # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
-  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
+  # Use a minified Ember in production
+  config.ember.variant = :production
+
+  # Specifies the header that Nginx uses for sending files
+  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   config.force_ssl = true
@@ -35,8 +37,20 @@ WaxPoetic::Application.configure do
   # Prepend all log lines with the following tags
   # config.log_tags = [ :subdomain, :uuid ]
 
+  # Use RedisToGo in production
+  config.redis_url = ENV['REDISTOGO_URL']
+
   # Use the Redis cache store in production
-  config.cache_store = :redis_store, "#{ENV['REDISTOGO_URL']}/0/cache"
+  config.cache_store = :redis_store, "#{config.redis_url}/0/cache"
+
+  # Use Redis to store sessions as well
+  config.session_store = :redis_store, '_waxpoetic'
+
+  # Cache on the HTTP level with Redis and Rack::Cache
+  config.action_dispatch.rack_cache = {
+    metastore:   "#{config.redis_url}/1/cache-metadata",
+    entitystore: "#{config.redis_url}/1/cache-objects"
+  }
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   config.action_controller.asset_host = 'http://files.waxpoeticrecords.com.s3.amazonaws.com'
@@ -61,15 +75,6 @@ WaxPoetic::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  # Use a minified Ember in production
-  config.ember.variant = :production
-
   # Email with real host in production
   config.action_mailer.default_url_options = { host: 'waxpoeticrecords.com' }
-
-  # HTTP caching with Rack::Cache
-  config.action_dispatch.rack_cache = {
-    metastore:   "#{ENV['REDISTOGO_URL']}/1/cache-metadata",
-    entitystore: "#{ENV['REDISTOGO_URL']}/1/cache-objects"
-  }
 end

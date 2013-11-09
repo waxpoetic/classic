@@ -54,5 +54,8 @@ module WaxPoetic
 
     # Use local cookie storage for session by default
     config.session_store :cookie_store, key: '_wax_poetic_session'
+
+    # Run a Redis server on localhost (with Foreman)
+    config.redis_url = 'redis://localhost:6379'
   end
 end
