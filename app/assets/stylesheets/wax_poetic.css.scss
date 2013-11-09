@@ -1335,6 +1335,12 @@ $topbar-link-font-size: emCalc(16);
   }
 }
 
+.page {
+  ul {
+    margin-left: 20px;
+  }
+}
+
 .retail img {
   text-align: center;
   width: 200px;
@@ -1478,4 +1484,8 @@ $topbar-link-font-size: emCalc(16);
   }
 }
 
-
+footer {
+  a, p {
+    font-size: 14px;
+  }
+}

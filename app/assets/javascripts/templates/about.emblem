@@ -27,8 +27,25 @@
       100% open-source components, and apart from the payment system,
       we serve all of our organic content with open-source systems
       and services.
-    h4
-      a href="http://github.com/tubbo/waxpoeticrecords.com" check out the codebase!
-    p we used ember.js, zurb foundation and ruby on rails to build the web
-      application that you see before your eyes. additionally, we partnered with
-      Stripe payments to provide merchant services for on-site product sales.
+    h4 get to the code!
+    p we've developed a number of applications related to our business
+      and open-sourced them for everyone to see...
+    ul
+      li
+        a href="http://github.com/tubbo/waxpoeticrecords.com"
+          | waxpoeticrecords.com
+        p this is the site you're currently viewing, and it's used to
+          catalog all of our artists & releases as well as provide a place
+          for us to sell open-source editions of each release.
+      li
+        a href="http://github.com/tubbo/forthcoming"
+          | forthcoming (music.waxpoeticrecords.com)
+        p an app for new releases that we give out for free in exchange
+          for social media support.
+      li
+        a href="http://github.com/tubbo/ghettoblaster"
+          | ghettoblaster (vip.waxpoeticrecords.com)
+        p this app provides invites or guest-list reduced admission at
+          our parties in exchange for a name and email. we use the
+          database of emails from this app to send out new party invites
+          as well as new release mailings.

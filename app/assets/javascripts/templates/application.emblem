@@ -24,15 +24,17 @@ footer.row
   .large-12.columns
     hr
     .row
-      .large-6.columns
+      .large-4.columns
         p &copy; copyright 2013 wax poetic music, llc
-      .large-6.columns
-        ul.inline-list.right
+      .large-8.columns
+        ul.inline-list.right.links
           li
-            linkTo 'artists' | artists
+            linkTo 'artists' | artist roster
           li
-            linkTo 'releases' | releases
+            linkTo 'releases' | release catalog
+          li
+            linkTo 'shop' | online store
           li
             linkTo 'about' | what is "open source"?
           li
-            linkTo 'contact' | contact
+            linkTo 'contact' | contact us
