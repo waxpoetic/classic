@@ -1,4 +1,17 @@
 .row
   .large-12.columns
     h2 new releases
-    p Our music is also available on Beatport, iTunes, Spotify, Rdio and Amazon!
+    p Our music is also available at your favorite online retailer:
+    ul.inline-list
+      li
+        a href="http://www.beatport.com/label/wax-poetic/27805"
+          | Beatport
+      li
+        a href="https://itunes.apple.com/us/artist/the-wonder-bars/id561457304"
+          | iTunes
+      li
+        a href="https://play.spotify.com/artist/2nrkwnQWEqM20n92QC7Cdy"
+          | Spotify
+      li
+        a href="http://www.amazon.com/Just-The-Start-Wonder-Bars/dp/B008PST5IM/ref=sr_1_2?s=dmusic&ie=UTF8&sr=1-2&keywords=wonder+bars"
+          | Amazon
