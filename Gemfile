@@ -15,6 +15,7 @@ gem 'devise'
 gem 'haml-rails'
 gem 'resque', '~> 1.25'
 gem 'resque_mailer'
+gem 'foreman'
 
 group :assets do
   gem 'jquery-rails',     '2.2.2'
