@@ -33,6 +33,7 @@ group :development do
   gem 'meta_request'
   gem 'quiet_assets'
   gem 'travis'
+  gem 'yard'
 end
 
 group :development, :test do
