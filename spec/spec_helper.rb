@@ -4,10 +4,10 @@ require 'bundler/setup'
 # Begin code coverage analysis
 if ENV['COVERAGE'] == 'true'
   require 'simplecov'
-  SimpleCov.start 'rails' do |c|
-    c.add_filter 'vendor'
-    c.coverage_path = 'doc/coverage'
+  SimpleCov.start 'rails' do
+    add_filter 'vendor'
   end
+  SimpleCov.coverage_dir 'doc/coverage'
 end
 
 # Load test framework
