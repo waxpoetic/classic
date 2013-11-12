@@ -29,3 +29,5 @@ coverage/
 spec/tmp/*
 public/uploads
 public/assets
+
+.yardoc/
