@@ -54,7 +54,7 @@ describe OrdersController do
     let(:admin) { users :admin }
     before do
       request.env["devise.mapping"] = Devise.mappings[:user]
-      user.confirm!
+      admin.confirm!
       sign_in admin
     end
 
