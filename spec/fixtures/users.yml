@@ -1,2 +1,5 @@
 customer:
   email: 'lester.tester@example.com'
+admin:
+  email: 'staffmember@waxpoeticrecords.com'
+  is_admin: true

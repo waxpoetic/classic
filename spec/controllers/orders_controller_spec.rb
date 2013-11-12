@@ -5,7 +5,7 @@ describe OrdersController do
 
   let(:past_order) { orders :wonderbars_discography }
 
-  context "when logged in" do
+  context "when logged in as a customer" do
     let(:user) { users :customer }
     before do
       request.env["devise.mapping"] = Devise.mappings[:user]
@@ -47,6 +47,29 @@ describe OrdersController do
 
         response.should be_success, "#{response.status}"
       end
+    end
+  end
+
+  context "when logged in as an admin" do
+    let(:admin) { users :admin }
+    before do
+      request.env["devise.mapping"] = Devise.mappings[:user]
+      user.confirm!
+      sign_in admin
+    end
+
+    it "can view any order by any person" do
+      get :index, format: :json
+
+      expect(assigns(:orders)).to include(past_order)
+    end
+  end
+
+  context "when not logged in" do
+    it "can not view any part of orders" do
+      get :index, format: :json
+
+      expect(response).to_not be_success
     end
   end
 end
