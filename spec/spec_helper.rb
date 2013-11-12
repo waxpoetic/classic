@@ -1,14 +1,28 @@
-# This file is copied to spec/ when you run 'rails generate rspec:install'
+# Load gem bundle
+require 'bundler/setup'
+
+# Begin code coverage analysis
+if ENV['COVERAGE'] == 'true'
+  require 'simplecov'
+  SimpleCov.start 'rails' do |c|
+    c.add_filter 'vendor'
+    c.coverage_path = 'doc/coverage'
+  end
+end
+
+# Load test framework
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 
+# Load additional modules
 require 'vcr'
 require 'pry'
 require 'capybara'
 require 'capybara/poltergeist'
 require 'email_spec'
+#require 'resque_spec'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

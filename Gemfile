@@ -49,6 +49,8 @@ group :test do
   gem 'vcr'
   gem 'webmock'
   gem 'email_spec'
+  #gem 'resque_spec'
+  gem 'simplecov', :require => false
 end
 
 group :production do
