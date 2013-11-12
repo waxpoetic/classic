@@ -44,4 +44,5 @@ end
 
 group :production do
   gem 'airbrake'
+  gem 'newrelic_rpm'
 end
