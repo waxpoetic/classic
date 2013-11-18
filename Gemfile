@@ -11,7 +11,7 @@ gem 'puma'
 gem 'mini_magick'
 gem 'activeadmin'
 gem 'strong_parameters'
-gem 'asset_sync'
+gem 'zen_garden'
 
 group :assets do
   gem 'jquery-rails',     '2.2.2'
@@ -43,6 +43,7 @@ group :test do
 end
 
 group :production do
+  gem 'asset_sync'
   gem 'airbrake'
   gem 'newrelic_rpm'
 end
