@@ -3,7 +3,6 @@ require File.expand_path('../boot', __FILE__)
 %w(
   active_record
   action_controller
-  action_view
   action_mailer
   sprockets
 ).each do |framework|
