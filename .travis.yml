@@ -12,8 +12,6 @@ branches:
 language: ruby
 rvm: 2.0.0
 bundler_args: --without=development
-before_script:
-  - bundle exec rake db
-  - bundle exec rake db:test:prepare
-script: bundle exec rake db:migrate test
+before_script: bundle exec rake db
+script: bundle exec rake test
 after_script: bundle exec rake deploy
