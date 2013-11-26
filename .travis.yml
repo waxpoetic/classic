@@ -13,5 +13,5 @@ language: ruby
 rvm: 2.0.0
 bundler_args: --without=development
 before_script: bundle exec rake db
-script: bundle exec rake test
+script: bundle exec rake db:migrate test
 after_script: bundle exec rake deploy
