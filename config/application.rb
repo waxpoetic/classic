@@ -11,7 +11,7 @@ require File.expand_path('../boot', __FILE__)
   rescue LoadError;end
 end
 
-Bundler.require(:framework, :engines, :services, Rails.groups(:assets => %w(development test)))
+Bundler.require(:framework, :engines, :services, *Rails.groups(:assets => %w(development test)))
 
 module WaxPoetic
   class Application < Rails::Application
