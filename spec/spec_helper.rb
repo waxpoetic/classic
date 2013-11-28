@@ -3,10 +3,14 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'codeclimate-test-reporter'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+
+# Report test results to Codeclimate on CI
+CodeClimate::TestReporter.start if ENV['CI']
 
 RSpec.configure do |config|
   # ## Mock Framework

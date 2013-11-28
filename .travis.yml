@@ -1,7 +1,8 @@
 env:
   global:
-  - secure: PavryfczFWvhCn9SqF+f0gloihPFjxQprs80F2473aX/AdMiiaL4rRedSyKdVvJWfiuEw//1onaeGdwyucEe05ervkou9hu2wmRkT5EWsoqGAKa4PbGkEhqWKj0n3Byw2vKH+Z4Mie8Y5/tTGT6NyPs1r6KeEzb3kmLMwOTchHk=
-  - secure: NIzzLPSpy8dAvppP1Zj4LEcOBrL642IoERozg/2qII9y9tUeousKJi5DbEvePK3uUVfkgTvDatElgpZWvNYIEdLwhasLMf7mVisC4EVDZlpD9aG0E53s3gle30iuFgRgr05yiA7DwBLxFjM7QqvWkn7XH2wU109fwXvP1xBfZbo=
+  - secure: "PavryfczFWvhCn9SqF+f0gloihPFjxQprs80F2473aX/AdMiiaL4rRedSyKdVvJWfiuEw//1onaeGdwyucEe05ervkou9hu2wmRkT5EWsoqGAKa4PbGkEhqWKj0n3Byw2vKH+Z4Mie8Y5/tTGT6NyPs1r6KeEzb3kmLMwOTchHk="
+  - secure: "NIzzLPSpy8dAvppP1Zj4LEcOBrL642IoERozg/2qII9y9tUeousKJi5DbEvePK3uUVfkgTvDatElgpZWvNYIEdLwhasLMf7mVisC4EVDZlpD9aG0E53s3gle30iuFgRgr05yiA7DwBLxFjM7QqvWkn7XH2wU109fwXvP1xBfZbo="
+  - secure: "Iq/pfGIsUeZYJ1ntbrjXU2tbF8JyJlRn36W5QEaqz+6CycL4jf1td4RCAoWRrwU7Nf/uCvvRfg5oDlDUAduKwLv8Xa2Is9Ji97ryMTdsFoPrQqz3PAL+SWPLbvHT3m62qkehiHjzwpdNEnEY+ctqXfhnc8nwJzSYhWF1OkRU2EE="
   - TO=production
   - REVISION=$(git rev-parse HEAD)
   - REPO=waxpoeticrecords.com
