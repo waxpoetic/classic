@@ -1,17 +1,24 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '~> 3.2'
-gem 'pg'
-gem 'active_model_serializers'
-gem 'jbuilder'
-gem 'carrierwave'
-gem 'fog'
-gem 'puma'
-gem 'mini_magick'
-gem 'activeadmin'
-gem 'strong_parameters'
-gem 'zen_garden'
+group :framework do
+  gem 'rails', '~> 3.2'
+  gem 'pg'
+  gem 'puma'
+end
+
+group :engines do
+  gem 'active_model_serializers'
+  gem 'carrierwave'
+  gem 'activeadmin'
+  gem 'strong_parameters'
+  gem 'zen_garden'
+end
+
+group :services do
+  gem 'fog'
+  gem 'mini_magick'
+end
 
 group :assets do
   gem 'jquery-rails',     '2.2.2'
@@ -20,11 +27,10 @@ group :assets do
   gem 'zurb-foundation',  '>= 4.0'
   gem 'uglifier',         '~> 1.3'
   gem 'font-awesome-rails'
+  gem 'ember-rails', '0.12.0'
+  gem 'emblem-rails', '0.0.7'
+  gem 'ember_script-rails'
 end
-
-gem 'ember-rails', '0.12.0'
-gem 'emblem-rails', '0.0.7'
-gem 'ember_script-rails'
 
 group :development do
   gem 'meta_request'

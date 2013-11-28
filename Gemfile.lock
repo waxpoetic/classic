@@ -171,9 +171,6 @@ GEM
     inherited_resources (1.4.1)
       has_scope (~> 0.6.0.rc)
       responders (~> 1.0.0.rc)
-    jbuilder (1.5.1)
-      activesupport (>= 3.0.0)
-      multi_json (>= 1.2.0)
     journey (1.0.4)
     jquery-rails (2.2.2)
       railties (>= 3.0, < 5.0)
@@ -361,7 +358,6 @@ DEPENDENCIES
   emblem-rails (= 0.0.7)
   fog
   font-awesome-rails
-  jbuilder
   jquery-rails (= 2.2.2)
   meta_request
   mini_magick

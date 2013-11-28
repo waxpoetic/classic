@@ -6,6 +6,7 @@ env:
   - TO=production
   - REVISION=$(git rev-parse HEAD)
   - REPO=waxpoeticrecords.com
+  - RAILS_SECRET='hello-i-am-running-on-travis-ci'
 branches:
   only:
     - master
