@@ -71,6 +71,9 @@ module WaxPoetic
 
     # Send emails from localhost
     config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
+    # Use REDIS_URL or a local Redis server by default.
+    config.redis_url = ENV['REDIS_URL'] || 'redis://localhost:6379'
   end
 end
 
