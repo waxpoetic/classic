@@ -43,11 +43,17 @@ WaxPoetic::Application.configure do
   # Use a different logger for distributed setups
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
-  # Use a different cache store in production
-  # config.cache_store = :mem_cache_store
+  # Store the cache in Redis
+  config.cache_store = :redis_store
 
-  # Enable serving of images, stylesheets, and JavaScripts from an asset server
-  config.action_controller.asset_host = 'http://files.waxpoeticrecords.com.s3.amazonaws.com'
+  # Store the session in Redis
+  config.session_store = :redis_store
+
+  # Use Redis as a backend for rack-cache
+  config.action_dispatch.rack_cache = {
+    metastore:   "#{config.redis_url}/1/metastore",
+    entitystore: "#{config.redis_url}/1/entitystore"
+  }
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
