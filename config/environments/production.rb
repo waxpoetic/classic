@@ -44,15 +44,17 @@ WaxPoetic::Application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
   # Store the cache in Redis
-  config.cache_store = :redis_store, "#{config.redis_url}/0/cache"
+  config.cache_store = :redis_store, "#{config.redis_url}/0/rails-cache"
 
   # Store the session in Redis
-  config.session_store = :redis_store
+  config.session_store = :redis_store, {
+    servers: "#{config.redis_url}/0/rails-session"
+  }
 
   # Use Redis as a backend for rack-cache
   config.action_dispatch.rack_cache = {
-    metastore:   "#{config.redis_url}/1/metastore",
-    entitystore: "#{config.redis_url}/1/entitystore"
+    metastore:   "#{config.redis_url}/1/rack-cache-metadata",
+    entitystore: "#{config.redis_url}/1/rack-cache-entities"
   }
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
