@@ -35,7 +35,6 @@ end
 group :development do
   gem 'meta_request'
   gem 'quiet_assets'
-  gem 'travis'
 end
 
 group :development, :test do
@@ -46,11 +45,11 @@ end
 group :test do
   gem 'rspec-rails'
   gem 'capybara'
-  gem "codeclimate-test-reporter", :require => false
 end
 
 group :production do
   gem 'asset_sync'
   gem 'airbrake'
   gem 'newrelic_rpm'
+  gem 'rails_12factor'
 end
