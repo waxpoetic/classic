@@ -44,7 +44,7 @@ WaxPoetic::Application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
   # Store the cache in Redis
-  config.cache_store = :redis_store
+  config.cache_store = :redis_store, "#{config.redis_url}/0/cache"
 
   # Store the session in Redis
   config.session_store = :redis_store
