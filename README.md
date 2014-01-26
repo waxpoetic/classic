@@ -9,7 +9,39 @@ and [Ember.js](http://emberjs.com), with a major "tip of the hat" to
 [Zurb Foundation](http://foundation.zurb.com) for its capability to
 "rapid prototype" CSS and JS interaction.
 
+## Setup
+
+Install dependencies:
+
+```bash
+$ brew install postgresql ruby-install
+$ ruby-install ruby 2.0
+$ gem install bundler
+$ git clone https://github.com/waxpoetic/waxpoeticrecords.com.git
+$ cd waxpoeticrecords.com
+$ bundle install
+```
+
+Set up the database:
+
+```bash
+$ bundle exec rake db
+```
+
+Start the server:
+
+```bash
+$ bundle exec rails server
+```
+
+## Usage
+
+Go to **/admin** and log in with `admin@example.com` and password
+`password` in order to access the admin panel.
+
 ## Development
+
+[![Build Status](https://travis-ci.org/waxpoetic/waxpoeticrecords.com.png?branch=master)](https://travis-ci.org/waxpoetic/waxpoeticrecords.com)
 
 Did you find a bug, or do you just want to see how it all "ticks"? The
 app that powers <http://waxpoeticrecords.com> is just a Rails/Ember app,
@@ -34,3 +66,4 @@ get the DB set up first!
 - Build online store
 - Add more pictures
 - Integrate responsive image features of Foundation
+
