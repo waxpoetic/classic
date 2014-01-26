@@ -1,3 +1,6 @@
+
+# Configure CarrierWave to upload images directly to the 'files' CDN.
+
 CarrierWave.configure do |config|
   config.fog_credentials = {
     :provider               => 'AWS',
