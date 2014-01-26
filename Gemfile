@@ -52,4 +52,6 @@ group :production do
   gem 'airbrake'
   gem 'newrelic_rpm'
   gem 'rails_12factor'
+  gem 'redis-rails'
+  gem 'rack-cache'
 end

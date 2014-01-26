@@ -240,6 +240,23 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    redis (3.0.6)
+    redis-actionpack (3.2.4)
+      actionpack (~> 3.2.0)
+      redis-rack (~> 1.4.4)
+      redis-store (~> 1.1.4)
+    redis-activesupport (3.2.4)
+      activesupport (~> 3.2.0)
+      redis-store (~> 1.1.0)
+    redis-rack (1.4.4)
+      rack (~> 1.4.0)
+      redis-store (~> 1.1.4)
+    redis-rails (3.2.4)
+      redis-actionpack (~> 3.2.4)
+      redis-activesupport (~> 3.2.4)
+      redis-store (~> 1.1.4)
+    redis-store (1.1.4)
+      redis (>= 2.2)
     responders (1.0.0.rc)
       railties (>= 3.2, < 5)
     rest-client (1.6.7)
@@ -323,8 +340,10 @@ DEPENDENCIES
   pry-rails
   puma
   quiet_assets
+  rack-cache
   rails (~> 3.2)
   rails_12factor
+  redis-rails
   rspec-rails
   sass-rails
   strong_parameters
