@@ -9,9 +9,6 @@ require 'codeclimate-test-reporter'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
-# Report test results to Codeclimate on CI
-CodeClimate::TestReporter.start if ENV['CI']
-
 RSpec.configure do |config|
   # ## Mock Framework
   #
