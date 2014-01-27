@@ -22,7 +22,7 @@ WaxPoetic::Application.configure do
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   #config.assets.manifest = YOUR_PATH
-  #config.assets.prefix = '/assets'
+  config.assets.prefix = ''
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   config.action_controller.asset_host = "http://assets.waxpoeticrecords.com"
