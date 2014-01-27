@@ -24,6 +24,9 @@ group :assets do
   gem 'jquery-rails',     '2.2.2'
   gem 'sass-rails'
   gem 'coffee-rails'
+end
+
+group :views do
   gem 'zurb-foundation',  '>= 4.0'
   gem 'uglifier',         '~> 1.3'
   gem 'font-awesome-rails'
