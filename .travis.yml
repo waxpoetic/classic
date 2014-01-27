@@ -3,7 +3,8 @@ env:
   - TO=production
   - REVISION=$(git rev-parse HEAD)
   - REPO=waxpoeticrecords.com
-  - RAILS_SECRET='hello-i-am-running-on-travis-ci'
+  - USER=tubbo
+  - secure: XYOwwmp3+Df9j9ATSq1nLs7z02DhhiqT6JjYFzzhZ9NeAqx/+zSp2PMcMN9bqw5oLZdpzRTkhTvzw2TjwyghA19ppo1f3RxPFH9HrZS+P5i0CgS7Z0dSf9OXz/3SK4W3K/pROski+OldUJWiTgo6YeocN4Ijj8zYI1la5EB032Q=
 branches:
   only:
   - master
