@@ -2,7 +2,7 @@ class ReleasesController < ApplicationController
   respond_to :json
 
   def index
-    @releases = Release.where(search_params).order 'released_at DESC'
+    @releases = Release.where(search_params).order 'released_on DESC'
 
     respond_with @releases
   end
